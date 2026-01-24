@@ -2,69 +2,25 @@
   "name": "space-portfolio",
   "version": "1.0.1",
   "private": true,
+  "author": {
+    "name": "Pranav Kadam",
+    "email": "iampranavkadam@gmail.com",
+    "url": "https://github.com/pranavop45"
+  },
+  "description": "Personal space-themed developer portfolio.",
+  "license": "MIT",
+
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+
+    "commit": "git add . && git commit -m \"deploy: update\"",
+    "push": "git push origin main",
+    "deploy": "npm run commit && npm run push"
   },
-  "author": {
-    "name": "Sanidhya Kumar Verma",
-    "email": "sanidhya.verma12345@gmail.com",
-    "url": "https://github.com/sanidhyy"
-  },
-  "description": "Welcome to my full stack Next.js 14 space portfolio.",
-  "keywords": [
-    "reactjs",
-    "nextjs",
-    "vercel",
-    "react",
-    "space-portfolio",
-    "portfolio",
-    "react-icons",
-    "cn",
-    "clsx",
-    "3d-portfolio",
-    "3d-website",
-    "sonner",
-    "framer-motion",
-    "motion",
-    "animation",
-    "heroicons",
-    "next-themes",
-    "postcss",
-    "prettier",
-    "react-dom",
-    "tailwindcss",
-    "tailwindcss-animate",
-    "ui/ux",
-    "js",
-    "javascript",
-    "typescript",
-    "eslint",
-    "html",
-    "css"
-  ],
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/sanidhyy/space-portfolioit"
-  },
-  "homepage": "https://github.com/sanidhyy/space-portfolio#readme",
-  "bugs": {
-    "url": "https://github.com/sanidhyy/space-portfolio/issues",
-    "email": "sanidhya.verma12345@gmail.com"
-  },
-  "funding": [
-    {
-      "type": "patreon",
-      "url": "https://www.patreon.com/sanidhy"
-    },
-    {
-      "type": "Buy me a coffee",
-      "url": "https://www.buymeacoffee.com/sanidhy"
-    }
-  ],
+
   "dependencies": {
     "@google/generative-ai": "^0.24.1",
     "@heroicons/react": "^2.1.1",
@@ -83,6 +39,7 @@
     "tailwind-merge": "^2.2.0",
     "three": "^0.160.0"
   },
+
   "devDependencies": {
     "@types/node": "^20",
     "@types/react": "^18",
