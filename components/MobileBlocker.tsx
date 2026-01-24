@@ -1,53 +1,58 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import { Monitor } from "lucide-react";
 
 export default function MobileBlocker() {
   const [blocked, setBlocked] = useState(false);
 
   useEffect(() => {
-    const checkDevice = () => {
-      const width = window.innerWidth;
-
-      // Detect desktop mode on mobile
-      const isDesktopUA = !/Android|iPhone|iPad|iPod/i.test(
-        navigator.userAgent
-      );
-
-      // If mobile width AND not desktop mode → block
-      if (width < 1024 && !isDesktopUA) {
-        setBlocked(true);
-      } else {
-        setBlocked(false);
-      }
+    const checkScreen = () => {
+      // 👇 hard block mobile even in desktop mode
+      setBlocked(window.innerWidth < 1024);
     };
 
-    checkDevice();
-    window.addEventListener("resize", checkDevice);
+    checkScreen();
+    window.addEventListener("resize", checkScreen);
 
-    return () => window.removeEventListener("resize", checkDevice);
+    return () => window.removeEventListener("resize", checkScreen);
   }, []);
 
   if (!blocked) return null;
 
   return (
-    <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-[#030014] text-white px-6">
-      <div className="max-w-md text-center space-y-4">
-        <h1 className="text-2xl font-semibold">
-          Desktop Experience Recommended 💻
+    <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-[#030014] px-6">
+      <motion.div
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.4, ease: "easeOut" }}
+        className="max-w-md text-center text-white"
+      >
+        <div className="flex justify-center mb-6">
+          <div className="p-4 rounded-full bg-purple-500/20">
+            <Monitor size={42} className="text-purple-400" />
+          </div>
+        </div>
+
+        <h1 className="text-2xl font-bold mb-3 tracking-wide">
+          Desktop Experience Required
         </h1>
 
         <p className="text-sm text-gray-300 leading-relaxed">
-          This portfolio is designed for desktop and laptop screens to deliver
-          the best visuals, animations, and overall experience.
+          This portfolio is carefully crafted for{" "}
+          <span className="text-purple-400 font-medium">
+            laptops and desktop screens
+          </span>{" "}
+          to deliver the best visuals, animations, and overall experience.
         </p>
 
-        <p className="text-sm text-gray-400">
-          👉 You can enable <b>“Desktop site”</b> in your mobile browser to
-          preview it, but for the best experience, we recommend opening this
-          site on a laptop or computer.
+        <p className="mt-4 text-xs text-gray-400">
+          🚫 Mobile devices are not supported — even in desktop mode.
+          <br />
+          💻 Please open this site on a laptop or computer.
         </p>
-      </div>
+      </motion.div>
     </div>
   );
 }
