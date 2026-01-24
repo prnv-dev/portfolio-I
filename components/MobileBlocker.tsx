@@ -8,15 +8,13 @@ export default function MobileBlocker() {
   const [blocked, setBlocked] = useState(false);
 
   useEffect(() => {
-    const checkScreen = () => {
-      // 👇 hard block mobile even in desktop mode
+    const check = () => {
       setBlocked(window.innerWidth < 1024);
     };
 
-    checkScreen();
-    window.addEventListener("resize", checkScreen);
-
-    return () => window.removeEventListener("resize", checkScreen);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
   }, []);
 
   if (!blocked) return null;
@@ -26,7 +24,7 @@ export default function MobileBlocker() {
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.4, ease: "easeOut" }}
+        transition={{ duration: 0.4 }}
         className="max-w-md text-center text-white"
       >
         <div className="flex justify-center mb-6">
@@ -35,16 +33,16 @@ export default function MobileBlocker() {
           </div>
         </div>
 
-        <h1 className="text-2xl font-bold mb-3 tracking-wide">
+        <h1 className="text-2xl font-bold mb-3">
           Desktop Experience Required
         </h1>
 
         <p className="text-sm text-gray-300 leading-relaxed">
-          This portfolio is carefully crafted for{" "}
+          This portfolio is designed exclusively for{" "}
           <span className="text-purple-400 font-medium">
             laptops and desktop screens
           </span>{" "}
-          to deliver the best visuals, animations, and overall experience.
+          to deliver premium visuals, smooth animations, and the best experience.
         </p>
 
         <p className="mt-4 text-xs text-gray-400">

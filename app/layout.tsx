@@ -22,13 +22,9 @@ export const metadata: Metadata = siteConfig;
 export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <html lang="en">
-      <body
-        className={cn(
-          "bg-[#030014] overflow-x-hidden",
-          inter.className
-        )}
-      >
-        {/* Mobile/Desktop Handler (overlay) */}
+      <body className={cn("bg-[#030014] overflow-x-hidden", inter.className)}>
+        
+        {/* 🚫 Mobile Blocker (overlay only) */}
         <MobileBlocker />
 
         {/* Background */}
@@ -36,11 +32,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
 
         {/* Main UI */}
         <Navbar />
-
-        <main className="relative z-10">
-          {children}
-        </main>
-
+        <main className="relative z-10">{children}</main>
         <Footer />
 
         {/* Floating AI */}
