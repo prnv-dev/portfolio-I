@@ -3,13 +3,12 @@ import { Inter } from "next/font/google";
 import type { PropsWithChildren } from "react";
 
 import NovaWidget from "@/components/NovaWidget";
-import MobileBlocker from "@/components/MobileBlocker";
 import { Footer } from "@/components/main/footer";
 import { Navbar } from "@/components/main/navbar";
 import { StarsCanvas } from "@/components/main/star-background";
 import { siteConfig } from "@/config";
 import { cn } from "@/lib/utils";
-
+import MobileBlocker from "@/components/MobileBlocker";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -29,23 +28,23 @@ export default function RootLayout({ children }: PropsWithChildren) {
           inter.className
         )}
       >
-        {/* Mobile/Desktop Handler */}
-        <MobileBlocker>
-          {/* Background */}
-          <StarsCanvas />
+        {/* Mobile/Desktop Handler (overlay) */}
+        <MobileBlocker />
 
-          {/* Main UI */}
-          <Navbar />
+        {/* Background */}
+        <StarsCanvas />
 
-          <main className="relative z-10">
-            {children}
-          </main>
+        {/* Main UI */}
+        <Navbar />
 
-          <Footer />
+        <main className="relative z-10">
+          {children}
+        </main>
 
-          {/* Floating AI Widget */}
-          <NovaWidget />
-        </MobileBlocker>
+        <Footer />
+
+        {/* Floating AI */}
+        <NovaWidget />
       </body>
     </html>
   );
