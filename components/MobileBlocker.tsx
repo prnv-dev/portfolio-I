@@ -65,8 +65,9 @@ export default function MobileBlocker() {
 
         {/* Footer Note */}
         <p className="text-xs text-gray-500">
-          Recommended screen width: <span className="text-gray-300">1024px+</span>
+            Designed & developed by <span className="text-gray-300">Pranav</span>
         </p>
+
       </div>
     </div>
   );
