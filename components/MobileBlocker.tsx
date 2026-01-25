@@ -57,7 +57,6 @@ export default function MobileBlocker() {
 
         {/* Warning */}
         <div className="text-sm text-red-400 flex items-center justify-center gap-2">
-          <span>⛔</span>
           <span>
             Mobile devices are not supported — even in desktop mode.
           </span>
