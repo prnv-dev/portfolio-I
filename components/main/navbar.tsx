@@ -16,8 +16,8 @@ export const Navbar = () => {
 
   return (
     <div className="w-full h-[65px] fixed top-0 z-50 px-3 sm:px-6 md:px-10
-      bg-[#03001427] backdrop-blur-md
-      shadow-lg shadow-[#2A0E61]/50"
+      bg-[#030014]/95 md:bg-[#03001427] backdrop-blur-md
+      shadow-lg shadow-[#2A0E61]/50 border-b border-purple-500/10 md:border-b-0"
     >
       {/* Navbar Container */}
       <div className="w-full h-full flex items-center justify-between m-auto px-[5px] sm:px-[10px]">
@@ -39,11 +39,12 @@ export const Navbar = () => {
 
   <div
     className="
-      hidden md:flex
-      ml-[10px]
+      flex
+      ml-[6px] sm:ml-[10px]
       text-purple-400
       font-bold
       tracking-widest
+      text-xs sm:text-base
       flicker
     "
   >

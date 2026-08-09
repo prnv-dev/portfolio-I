@@ -15,9 +15,26 @@ export const HeroContent = () => {
     <motion.div
       initial="hidden"
       animate="visible"
-      className="flex flex-col-reverse md:flex-row items-center justify-center px-4 sm:px-10 md:px-20 mt-24 md:mt-40 w-full z-[20] gap-8 md:gap-0"
+      className="flex flex-col md:flex-row items-center justify-center px-4 sm:px-10 md:px-20 mt-6 sm:mt-10 md:mt-40 w-full z-[20] gap-4 md:gap-0"
     >
-      <div className="h-full w-full flex flex-col gap-5 justify-center m-auto text-start items-start">
+      {/* DESKTOP ONLY: Technology Orbit SVG (Original Desktop Presentation) */}
+      <motion.div
+        variants={slideInFromRight(0.8)}
+        className="hidden md:flex w-full h-full justify-center items-center order-2"
+      >
+        <Image
+          src="/hero-bg.svg"
+          alt="work icons"
+          height={650}
+          width={650}
+          draggable={false}
+          className="select-none"
+        />
+      </motion.div>
+
+      {/* Text Content (Starts directly below navbar on Mobile, Left on Desktop) */}
+      <div className="h-full w-full flex flex-col gap-4 md:gap-5 justify-center m-auto text-start items-start order-1 md:order-1">
+        {/* "The Developer" Badge - FIRST element on Mobile */}
         <motion.div
           variants={slideInFromTop}
           className="Welcome-box py-[8px] px-[7px] border border-[#7042f88b] opacity-[0.9]"
@@ -28,9 +45,10 @@ export const HeroContent = () => {
           </h1>
         </motion.div>
 
+        {/* Heading */}
         <motion.div
           variants={slideInFromLeft(0.5)}
-          className="flex flex-col gap-4 md:gap-6 mt-4 md:mt-6 text-3xl sm:text-5xl md:text-6xl font-bold text-white max-w-[600px] w-auto h-auto leading-tight"
+          className="flex flex-col gap-3 md:gap-6 mt-2 md:mt-6 text-3xl sm:text-5xl md:text-6xl font-bold text-white max-w-[600px] w-auto h-auto leading-tight"
         >
           <span>
             Hi, I&apos;m{" "}
@@ -50,9 +68,10 @@ export const HeroContent = () => {
           </span>
         </motion.div>
 
+        {/* Description */}
         <motion.p
           variants={slideInFromLeft(0.8)}
-          className="text-sm sm:text-base md:text-lg text-gray-400 my-3 md:my-5 max-w-[600px] leading-relaxed"
+          className="text-sm sm:text-base md:text-lg text-gray-400 my-2 md:my-5 max-w-[600px] leading-relaxed"
         >
           I&apos;m a Full Stack Developer who builds complete digital products — from
           modern web applications and secure backend systems to desktop EXE tools and
@@ -61,6 +80,7 @@ export const HeroContent = () => {
           deeper level.
         </motion.p>
 
+        {/* Button */}
         <Link href="/about-pranav">
           <motion.div
             variants={slideInFromLeft(1)}
@@ -70,20 +90,6 @@ export const HeroContent = () => {
           </motion.div>
         </Link>
       </div>
-
-      <motion.div
-        variants={slideInFromRight(0.8)}
-        className="w-full h-full flex justify-center items-center"
-      >
-        <Image
-          src="/hero-bg.svg"
-          alt="work icons"
-          height={650}
-          width={650}
-          draggable={false}
-          className="select-none w-full max-w-[280px] sm:max-w-[450px] md:max-w-[650px] h-auto"
-        />
-      </motion.div>
     </motion.div>
   );
 };
