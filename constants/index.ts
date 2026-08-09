@@ -81,43 +81,88 @@ export const OTHER_SKILL = [
 ] as const;
 
 
-export const PROJECTS = [
+export interface ProjectItem {
+  id: string;
+  title: string;
+  category: string;
+  description: string;
+  url: string | null;
+  status: "LIVE" | "COMING SOON";
+  accentKey: "violet-pink" | "emerald" | "amber" | "cyan" | "purple" | "pink-crimson" | "indigo";
+}
+
+export const PROJECTS: ProjectItem[] = [
   {
-    title: "VertexAI – Offline AI Tool",
+    id: "portfolio",
+    title: "Portfolio",
+    category: "PERSONAL PORTFOLIO",
     description:
-      "VertexAI is an advanced AI tool similar to ChatGPT that works even offline. It can analyze uploaded videos and generate accurate UI code by understanding the design shown in the video.",
-    image: "/projects/project-1.png",
-    link: "https://example.com",
+      "Personal portfolio showcasing my development work, products, UI/UX experiments and projects.",
+    url: "https://pranavkadam.in",
+    status: "LIVE",
+    accentKey: "violet-pink",
   },
   {
+    id: "cleanmaster-pro",
     title: "CleanMaster Pro",
+    category: "DESKTOP APPLICATION",
     description:
-      "CleanMaster Pro is a powerful desktop application that scans and removes hidden cache and junk files from a system, helping improve performance and free up storage safely.",
-    image: "/projects/project-2.png",
-    link: "https://example.com",
+      "High-performance Windows desktop optimization software for cleaning junk, improving system performance and managing system resources.",
+    url: "https://cleanmasterpro.in",
+    status: "LIVE",
+    accentKey: "emerald",
   },
   {
-    title: "CodeVault – Digital Products Platform",
+    id: "codevault",
+    title: "CodeVault",
+    category: "DEVELOPER MARKETPLACE",
     description:
-      "CodeVault is a digital platform where users can purchase ready-made portfolios, login pages, and full websites. Built with secure authentication and a scalable architecture.",
-    image: "/projects/project-3.png",
-    link: "https://example.com",
+      "Developer marketplace for premium source code, UI kits, animations and full-stack templates.",
+    url: "https://codevaultofficial.in/",
+    status: "LIVE",
+    accentKey: "amber",
   },
   {
-    title: "Secure Backend Systems",
+    id: "deepscan-ai",
+    title: "DeepScan AI",
+    category: "AI PLATFORM",
     description:
-      "A collection of production-ready secure backend systems designed with strong authentication, key-based access control, and protected APIs to ensure application-level security and controlled usage.",
-    image: "/projects/project-4.png",
-    link: "https://example.com",
+      "AI-powered authenticity and deepfake detection platform for analyzing images, videos, audio and text.",
+    url: "https://deepscan-ai.vercel.app/",
+    status: "LIVE",
+    accentKey: "cyan",
   },
   {
-    title: "AI Assistant",
+    id: "income-os",
+    title: "IncomeOS",
+    category: "AI / SAAS",
     description:
-      "An intelligent AI assistant built to automate tasks, answer queries, and enhance productivity using modern AI models, optimized workflows, and a clean interactive interface.",
-    image: "/projects/project-5.png",
-    link: "https://example.com",
+      "AI-powered financial planning and income strategy platform for tracking goals, income and execution.",
+    url: "https://income-os-weld.vercel.app/",
+    status: "LIVE",
+    accentKey: "purple",
   },
-] as const;
+  {
+    id: "bulletproof-panel",
+    title: "BulletProof Panel",
+    category: "SECURITY MANAGEMENT",
+    description:
+      "Security and server management control panel for monitoring, managing and protecting application infrastructure.",
+    url: "https://bulletproof-panel-production.up.railway.app/",
+    status: "LIVE",
+    accentKey: "pink-crimson",
+  },
+  {
+    id: "resume-iq",
+    title: "ResumeIQ",
+    category: "AI / SAAS",
+    description:
+      "AI-powered resume screening and optimization platform designed to analyze resumes and help identify stronger candidates.",
+    url: null,
+    status: "COMING SOON",
+    accentKey: "indigo",
+  },
+];
 
 
 export const FOOTER_DATA: FooterColumn[] = [
