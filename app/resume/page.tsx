@@ -44,7 +44,7 @@ const ResumePage = () => {
               <h2 className="text-xl font-semibold text-white">Resume</h2>
             </div>
             
-            <div className="p-6 flex justify-center">
+            <div className="p-3 sm:p-6 flex justify-center">
               {isClient ? (
                 <div className="w-full max-w-4xl">
                   <div className="relative rounded-xl overflow-hidden shadow-2xl border border-gray-700/50 bg-gray-800/30">

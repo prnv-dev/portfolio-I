@@ -6,11 +6,13 @@ export default function BrainModePage() {
       </h1>
 
       {/* Chess iframe / component */}
-      <div className="rounded-xl overflow-hidden shadow-xl">
-        <iframe
-          src="/chess/chess.html"
-          className="w-[420px] h-[520px] border-none"
-        />
+      <div className="w-full max-w-[420px] px-4">
+        <div className="rounded-xl overflow-hidden shadow-xl border border-purple-500/20">
+          <iframe
+            src="/chess/chess.html"
+            className="w-full h-[500px] sm:h-[520px] border-none"
+          />
+        </div>
       </div>
 
       <p className="text-gray-400 mt-6">

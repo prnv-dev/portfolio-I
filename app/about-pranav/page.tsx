@@ -65,7 +65,7 @@ const AboutPranavPage = () => {
         </div>
 
         {/* Introduction Section */}
-        <div className="bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-xl p-8 mb-12 shadow-2xl shadow-purple-500/20">
+        <div className="bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-xl p-5 sm:p-8 mb-12 shadow-2xl shadow-purple-500/20">
           <h2 className="text-2xl font-bold text-white mb-6 flex items-center">
             <span className="w-2 h-2 bg-purple-500 rounded-full mr-3"></span>
             Professional Summary
@@ -80,12 +80,12 @@ const AboutPranavPage = () => {
         </div>
 
         {/* Skills Section */}
-        <div className="bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-xl p-8 mb-12 shadow-2xl shadow-purple-500/20">
+        <div className="bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-xl p-5 sm:p-8 mb-12 shadow-2xl shadow-purple-500/20">
           <h2 className="text-2xl font-bold text-white mb-6 flex items-center">
             <span className="w-2 h-2 bg-purple-500 rounded-full mr-3"></span>
             Technical Skills
           </h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
             {skills.map((skill, index) => (
               <div 
                 key={index}
@@ -98,7 +98,7 @@ const AboutPranavPage = () => {
         </div>
 
         {/* Education Section */}
-        <div className="bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-xl p-8 mb-12 shadow-2xl shadow-purple-500/20">
+        <div className="bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-xl p-5 sm:p-8 mb-12 shadow-2xl shadow-purple-500/20">
           <h2 className="text-2xl font-bold text-white mb-6 flex items-center">
             <span className="w-2 h-2 bg-purple-500 rounded-full mr-3"></span>
             Education
@@ -112,7 +112,7 @@ const AboutPranavPage = () => {
         </div>
 
         {/* Experience Section */}
-        <div className="bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-xl p-8 mb-12 shadow-2xl shadow-purple-500/20">
+        <div className="bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-xl p-5 sm:p-8 mb-12 shadow-2xl shadow-purple-500/20">
           <h2 className="text-2xl font-bold text-white mb-6 flex items-center">
             <span className="w-2 h-2 bg-purple-500 rounded-full mr-3"></span>
             Professional Experience
@@ -126,7 +126,7 @@ const AboutPranavPage = () => {
         </div>
 
         {/* Social & Contact Section */}
-        <div className="bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-xl p-8 mb-12 shadow-2xl shadow-purple-500/20">
+        <div className="bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-xl p-5 sm:p-8 mb-12 shadow-2xl shadow-purple-500/20">
           <h2 className="text-2xl font-bold text-white mb-6 flex items-center">
             <span className="w-2 h-2 bg-purple-500 rounded-full mr-3"></span>
             Connect With Me

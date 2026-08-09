@@ -93,8 +93,13 @@
   scrollbar-width: none;
 }
 
-html,
-body {
-  touch-action: none;
-  overscroll-behavior: none;
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
 }
+
+body {
+  overflow-x: hidden;
+  touch-action: auto;
+}
+

@@ -13,12 +13,11 @@ export const Skills = () => {
   return (
     <section
       id="skills"
-      style={{ transform: "scale(0.9)" }}
-      className="flex flex-col items-center justify-center gap-3 h-full relative overflow-hidden py-20"
+      className="flex flex-col items-center justify-center gap-3 h-full relative overflow-hidden py-16 md:py-20 px-4 max-w-7xl mx-auto"
     >
       <SkillText />
 
-      <div className="flex flex-row justify-around flex-wrap mt-4 gap-5 items-center">
+      <div className="flex flex-row justify-center flex-wrap mt-4 gap-3 sm:gap-5 items-center w-full">
         {SKILL_DATA.map((skill, i) => (
           <SkillDataProvider
             key={skill.skill_name}
@@ -31,7 +30,7 @@ export const Skills = () => {
         ))}
       </div>
 
-      <div className="flex flex-row justify-around flex-wrap mt-4 gap-5 items-center">
+      <div className="flex flex-row justify-center flex-wrap mt-4 gap-3 sm:gap-5 items-center w-full">
         {FRONTEND_SKILL.map((skill, i) => (
           <SkillDataProvider
             key={skill.skill_name}
@@ -43,7 +42,7 @@ export const Skills = () => {
           />
         ))}
       </div>
-      <div className="flex flex-row justify-around flex-wrap mt-4 gap-5 items-center">
+      <div className="flex flex-row justify-center flex-wrap mt-4 gap-3 sm:gap-5 items-center w-full">
         {BACKEND_SKILL.map((skill, i) => (
           <SkillDataProvider
             key={skill.skill_name}
@@ -55,7 +54,7 @@ export const Skills = () => {
           />
         ))}
       </div>
-      <div className="flex flex-row justify-around flex-wrap mt-4 gap-5 items-center">
+      <div className="flex flex-row justify-center flex-wrap mt-4 gap-3 sm:gap-5 items-center w-full">
         {FULLSTACK_SKILL.map((skill, i) => (
           <SkillDataProvider
             key={skill.skill_name}
@@ -67,7 +66,7 @@ export const Skills = () => {
           />
         ))}
       </div>
-      <div className="flex flex-row justify-around flex-wrap mt-4 gap-5 items-center">
+      <div className="flex flex-row justify-center flex-wrap mt-4 gap-3 sm:gap-5 items-center w-full">
         {OTHER_SKILL.map((skill, i) => (
           <SkillDataProvider
             key={skill.skill_name}

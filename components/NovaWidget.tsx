@@ -146,7 +146,7 @@ setMessages((prev) => [
     <>
       {/* Floating Nova Icon */}
       <div
-        className="fixed bottom-6 right-6 z-[9999] cursor-pointer group"
+        className="fixed bottom-4 sm:bottom-6 right-4 sm:right-6 z-[9999] cursor-pointer group"
         onClick={() => setOpen((v) => !v)}
       >
         <Image
@@ -154,15 +154,15 @@ setMessages((prev) => [
           alt="Nova"
           width={190}
           height={190}
-          className="transition-all duration-300 group-hover:scale-110
+          className="w-28 h-28 sm:w-44 sm:h-44 object-contain transition-all duration-300 group-hover:scale-110
             group-hover:drop-shadow-[0_0_30px_rgba(168,85,247,0.9)]"
         />
       </div>
 
       {/* Chat Window */}
       {open && (
-        <div className="fixed bottom-32 right-6 z-[9999]
-          w-[380px] h-[560px] rounded-2xl
+        <div className="fixed bottom-20 sm:bottom-32 right-4 sm:right-6 z-[9999]
+          w-[calc(100vw-2rem)] sm:w-[380px] h-[70vh] max-h-[560px] rounded-2xl
           bg-[#0b021a]/95 backdrop-blur-xl
           border border-purple-500/40
           shadow-[0_0_60px_rgba(168,85,247,0.5)]

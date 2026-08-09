@@ -15,12 +15,12 @@ export const Navbar = () => {
   }, []);
 
   return (
-    <div className="w-full h-[65px] fixed top-0 z-50 px-10
+    <div className="w-full h-[65px] fixed top-0 z-50 px-3 sm:px-6 md:px-10
       bg-[#03001427] backdrop-blur-md
       shadow-lg shadow-[#2A0E61]/50"
     >
       {/* Navbar Container */}
-      <div className="w-full h-full flex items-center justify-between m-auto px-[10px]">
+      <div className="w-full h-full flex items-center justify-between m-auto px-[5px] sm:px-[10px]">
 
 
 {/* Logo */}
@@ -106,7 +106,8 @@ export const Navbar = () => {
 
         {/* Hamburger */}
         <button
-          className="md:hidden text-white text-4xl"
+          aria-label="Toggle Navigation Menu"
+          className="md:hidden text-white text-3xl p-1 focus:outline-none"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
           ☰
@@ -115,8 +116,8 @@ export const Navbar = () => {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="absolute top-[65px] left-0 w-full bg-[#030014]
-          p-5 flex flex-col items-center md:hidden"
+        <div className="absolute top-[65px] left-0 w-full bg-[#030014]/95 backdrop-blur-xl
+          border-b border-purple-500/20 shadow-2xl p-6 flex flex-col items-center gap-3 md:hidden z-50"
         >
           {NAV_LINKS.map((link) => {
             const isActive = activeHash === link.link;
@@ -129,7 +130,7 @@ export const Navbar = () => {
                   setActiveHash(link.link);
                   setIsMobileMenuOpen(false);
                 }}
-                className={`px-4 py-2 rounded-full transition-all
+                className={`w-full text-center px-4 py-2.5 rounded-full transition-all text-base font-medium
                   ${
                     isActive
                       ? "text-purple-300 bg-purple-500/20 shadow-[0_0_15px_rgba(168,85,247,0.7)]"
@@ -145,7 +146,7 @@ export const Navbar = () => {
             href={LINKS.GitHub}
             target="_blank"
             onClick={() => setIsMobileMenuOpen(false)}
-            className="mt-4 text-gray-300 hover:text-purple-400"
+            className="mt-2 text-gray-300 hover:text-purple-400 text-base font-medium"
           >
             GitHub
           </Link>
@@ -153,11 +154,11 @@ export const Navbar = () => {
           <Link
             href="/brain-mode"
             onClick={() => setIsMobileMenuOpen(false)}
-            className="mt-4 px-6 py-2 rounded-full
+            className="mt-2 px-6 py-2.5 rounded-full
               border border-purple-500
               text-purple-300
               hover:bg-purple-600 hover:text-white
-              transition font-semibold"
+              transition text-sm font-semibold"
           >
             🧠 Brain Mode
           </Link>
