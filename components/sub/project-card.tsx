@@ -5,6 +5,7 @@ import { ProjectItem } from "@/constants";
 
 type ProjectCardProps = {
   project: ProjectItem;
+  featured?: boolean;
 };
 
 // Custom Inline SVG Icon per Project Accent Key
@@ -176,13 +177,13 @@ const accentStyles: Record<
   },
 };
 
-export const ProjectCard = ({ project }: ProjectCardProps) => {
+export const ProjectCard = ({ project, featured = false }: ProjectCardProps) => {
   const style = accentStyles[project.accentKey];
   const isLive = project.status === "LIVE" && project.url !== null;
 
   return (
     <div
-      className={`group relative flex flex-col justify-between h-full rounded-2xl bg-[#0b061a]/85 backdrop-blur-xl border border-[#25104d]/70 ${style.borderHover} transition-all duration-300 ease-out hover:-translate-y-1.5 overflow-hidden p-6 shadow-lg`}
+      className={`group relative flex min-h-[330px] flex-col justify-between h-full rounded-2xl bg-[#0b061a]/85 backdrop-blur-xl border border-[#25104d]/70 ${style.borderHover} transition-all duration-300 ease-out hover:-translate-y-1.5 overflow-hidden ${featured ? "p-7 sm:p-9 lg:min-h-[410px]" : "p-6"} shadow-lg`}
     >
       {/* Top Accent Line */}
       <div
@@ -235,13 +236,13 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
           >
             <ProjectIcon accentKey={project.accentKey} />
           </div>
-          <h3 className="text-xl font-bold text-white tracking-tight group-hover:text-purple-100 transition-colors duration-200">
+          <h3 className={`${featured ? "text-2xl sm:text-3xl" : "text-xl"} font-bold text-white tracking-tight group-hover:text-purple-100 transition-colors duration-200`}>
             {project.title}
           </h3>
         </div>
 
         {/* DESCRIPTION */}
-        <p className="text-sm text-gray-300/85 font-normal leading-relaxed mb-6">
+        <p className={`${featured ? "max-w-2xl text-base" : "text-sm"} text-gray-300/85 font-normal leading-relaxed mb-6`}>
           {project.description}
         </p>
       </div>

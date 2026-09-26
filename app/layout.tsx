@@ -1,135 +1,23 @@
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
 import type { PropsWithChildren } from "react";
-
-import { Navbar } from "@/components/main/navbar";
 import { Footer } from "@/components/main/footer";
+import { Navbar } from "@/components/main/navbar";
 import { StarsCanvas } from "@/components/main/star-background";
 import NovaWidget from "@/components/NovaWidget";
-
-import { cn } from "@/lib/utils";
-
+import { PageTransition } from "@/components/PageTransition";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
-
-export const viewport: Viewport = {
-  width: "device-width",
-  initialScale: 1,
-  themeColor: "#030014",
-};
-
-/* 🔥 SEO DOMINANCE METADATA */
+export const viewport: Viewport = { width: "device-width", initialScale: 1, themeColor: "#030014" };
 export const metadata: Metadata = {
-  title: {
-    default: "Pranav Kadam | Full Stack Developer Portfolio",
-    template: "%s | Pranav Kadam",
-  },
-
-  description:
-    "Pranav Kadam portfolio website. Pranav Kadam is a Full Stack Developer specializing in React, Next.js, Node.js, TypeScript, AI tools, backend systems, and modern software engineering.",
-
-  keywords: [
-    // 🔥 NAME DOMINANCE
-    "Pranav Kadam",
-    "Pranav kadam",
-    "pranav kadam",
-    "hacker portfolio",
-    "pranav",
-    "Pranav Portfolio",
-    "kadam portfolio",
-    "Pranav Kadam",
-    "pranavkadam",
-    "Pranav Kadam portfolio",
-    "Pranav Kadam developer",
-    "Pranav Kadam software engineer",
-
-    // 🔥 TYPO & VARIATIONS (ranking trick)
-    "Pranav Kadam Portfolio Website",
-    "Pranav Kadam Personal Website",
-    "Pranav Kadam Full Stack Developer",
-    "Pranav Kadam India",
-    "Pranav Kadam Programmer",
-
-    // 🔥 TECH STACK SEARCHES
-    "Full Stack Developer",
-    "React Developer",
-    "Next.js Developer",
-    "Node.js Developer",
-    "TypeScript Developer",
-    "JavaScript Developer",
-    "AI Developer",
-    "Software Engineer Portfolio",
-
-    // 🔥 INTENT BASED
-    "Developer Portfolio Website",
-    "Modern Portfolio Next.js",
-    "Best Developer Portfolio",
-    "Software Developer Portfolio",
-  ],
-
-  authors: [{ name: "Pranav Kadam", url: "https://pranavkadam.in" }],
-
-  creator: "Pranav Kadam",
-
-  openGraph: {
-    title: "Pranav Kadam | Full Stack Developer Portfolio",
-    description:
-      "Official portfolio of Pranav Kadam – Full Stack Developer, React, Next.js, Node.js, AI tools, and modern web technologies.",
-    url: "https://pranavkadam.in",
-    siteName: "Pranav Kadam Portfolio",
-    images: [
-      {
-        url: "/logo.png",
-        width: 1200,
-        height: 630,
-        alt: "Pranav Kadam Portfolio",
-      },
-    ],
-    locale: "en_IN",
-    type: "website",
-  },
-
-  twitter: {
-    card: "summary_large_image",
-    title: "Pranav Kadam | Full Stack Developer",
-    description:
-      "Pranav Kadam portfolio – Full Stack Developer building modern web apps and AI-powered software.",
-    images: ["/logo.png"],
-  },
-
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-      "max-video-preview": -1,
-    },
-  },
-
   metadataBase: new URL("https://pranavkadam.in"),
+  title: { default: "Pranav Kadam | Full Stack Developer", template: "%s | Pranav Kadam" },
+  description: "Portfolio of Pranav Kadam, a full stack developer building modern web applications, desktop tools and AI-powered products.",
+  authors: [{ name: "Pranav Kadam", url: "https://pranavkadam.in" }], creator: "Pranav Kadam",
+  openGraph: { title: "Pranav Kadam | Full Stack Developer", description: "Modern software, secure systems and AI-powered products.", url: "https://pranavkadam.in", siteName: "Pranav Kadam Portfolio", images: [{ url: "/logo.png", width: 1200, height: 630, alt: "Pranav Kadam Portfolio" }], locale: "en_IN", type: "website" },
+  twitter: { card: "summary_large_image", title: "Pranav Kadam | Full Stack Developer", description: "Modern software, secure systems and AI-powered products.", images: ["/logo.png"] },
+  robots: { index: true, follow: true },
 };
 
 export default function RootLayout({ children }: PropsWithChildren) {
-  return (
-    <html lang="en">
-      <body
-        className={cn(
-          "bg-[#030014] overflow-x-hidden antialiased",
-          inter.className
-        )}
-      >
-        <StarsCanvas />
-        <Navbar />
-
-        <main className="relative z-10">{children}</main>
-
-        <Footer />
-        <NovaWidget />
-      </body>
-    </html>
-  );
+  return <html lang="en"><body><StarsCanvas /><div className="site-aurora" aria-hidden="true" /><Navbar /><PageTransition>{children}</PageTransition><Footer /><NovaWidget /></body></html>;
 }

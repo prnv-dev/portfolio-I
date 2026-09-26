@@ -214,7 +214,7 @@ export const FOOTER_DATA: FooterColumn[] = [
 {
   name: "About Pranav",
   icon: null,
-  link: "/about-pranav",
+  link: "/about",
 },
 {
   name: "Resume",
@@ -224,7 +224,7 @@ export const FOOTER_DATA: FooterColumn[] = [
 {
   name: "Contact Me",
   icon: null,
-  link: "https://t.me/DEVID_xx",
+  link: "/contact",
 },
 
     ],
