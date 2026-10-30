@@ -1,0 +1,32 @@
+.band {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: clamp(1.75rem, 5vw, 3.5rem);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+}
+
+.glow {
+  position: absolute;
+  inset: auto -10% -60% 30%;
+  z-index: -1;
+  height: 140%;
+  background: radial-gradient(closest-side, rgba(59, 130, 246, 0.18), rgba(34, 211, 238, 0.06) 55%, transparent);
+  filter: blur(10px);
+}
+
+.label {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--cyan);
+}
+
+.title {
+  max-width: 24ch;
+  font-size: clamp(1.6rem, 3.6vw, 2.5rem);
+  font-weight: 600;
+  line-height: 1.12;
+  letter-spacing: -0.035em;
+}

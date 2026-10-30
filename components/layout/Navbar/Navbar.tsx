@@ -102,7 +102,7 @@ export default function Navbar() {
           </span>
           <button
             type="button"
-            className={clsx(styles.menuButton, "md:hidden")}
+            className={styles.menuButton}
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
             aria-controls="mobile-nav"
@@ -118,7 +118,7 @@ export default function Navbar() {
           <motion.nav
             id="mobile-nav"
             aria-label="Mobile"
-            className={clsx(styles.sheet, "md:hidden")}
+            className={styles.sheet}
             initial={{ opacity: 0, y: -6 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -6 }}

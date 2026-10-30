@@ -1,19 +1,8 @@
-"use client";
-
-import { motion, useReducedMotion } from "framer-motion";
 import type { ReactNode } from "react";
+import styles from "./PageEnter.module.css";
 
-// Route entrance used by app/template.tsx — remounts per navigation.
-// Behaviour-only wrapper — no visual styling of its own.
+// Route entrance used by app/template.tsx, which remounts per navigation.
+// Pure CSS so pages paint before hydration.
 export default function PageEnter({ children }: { children: ReactNode }) {
-  const reduce = useReducedMotion();
-  return (
-    <motion.div
-      initial={reduce ? false : { opacity: 0, y: 8 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-    >
-      {children}
-    </motion.div>
-  );
+  return <div className={styles.enter}>{children}</div>;
 }

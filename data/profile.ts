@@ -2,7 +2,7 @@ export const PROFILE = {
   name: "Pranav Kadam",
   handle: "pranavop45",
   role: "Software engineer — desktop, web & AI",
-  location: "Nashik, Maharashtra, IN",
+  location: "Nashik, India",
   timezone: "Asia/Kolkata",
   email: "iampranavkadam@gmail.com",
   site: "https://pranavkadam.in",

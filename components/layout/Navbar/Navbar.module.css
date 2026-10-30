@@ -125,6 +125,13 @@
   color: var(--fg);
 }
 
+@media (min-width: 768px) {
+  .menuButton,
+  .sheet {
+    display: none;
+  }
+}
+
 /* mobile sheet */
 .sheet {
   height: calc(100svh - var(--nav-h));
