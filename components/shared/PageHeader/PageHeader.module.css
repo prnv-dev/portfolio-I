@@ -1,0 +1,50 @@
+.header {
+  position: relative;
+  isolation: isolate;
+  border-bottom: 1px solid var(--line);
+}
+
+.backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  -webkit-mask-image: radial-gradient(ellipse 70% 90% at 75% 30%, #000 20%, transparent 75%);
+  mask-image: radial-gradient(ellipse 70% 90% at 75% 30%, #000 20%, transparent 75%);
+}
+
+.inner {
+  padding-top: calc(var(--nav-h) + 4.5rem);
+  padding-bottom: 3.5rem;
+}
+
+.path {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  color: var(--fg-muted);
+}
+
+.prompt {
+  color: var(--cyan);
+}
+
+.title {
+  max-width: 16ch;
+  font-size: clamp(2.4rem, 6vw, 4.25rem);
+  font-weight: 600;
+  line-height: 1.02;
+  letter-spacing: -0.045em;
+}
+
+.lede {
+  max-width: 40rem;
+  color: var(--fg-muted);
+  font-size: 16.5px;
+  line-height: 1.65;
+}
+
+@media (min-width: 640px) {
+  .inner {
+    padding-top: calc(var(--nav-h) + 6rem);
+    padding-bottom: 4.5rem;
+  }
+}
