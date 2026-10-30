@@ -1,1 +1,29 @@
-export default function LetsFunPage(){return <div className="page-shell page-top"><div className="mx-auto max-w-2xl text-center"><span className="eyebrow">✦ Let&apos;s Fun!</span><h1 className="section-title mt-5">Challenge the AI.</h1><p className="muted-copy mt-4">Take a break, play a round and sharpen your strategy.</p></div><div className="premium-panel mx-auto mt-10 max-w-[520px] overflow-hidden p-2 sm:p-3"><iframe title="Chess game" src="/chess/chess.html" className="h-[540px] w-full rounded-xl border-0 sm:h-[580px]"/></div></div>}
+import type { Metadata } from "next";
+import { ArrowRight } from "lucide-react";
+import Terminal from "@/components/play/Terminal/Terminal";
+import Button from "@/components/shared/Button/Button";
+import PageHeader from "@/components/shared/PageHeader/PageHeader";
+
+export const metadata: Metadata = {
+  title: "Playground",
+  description: "A working terminal for exploring Pranav Kadam's projects, products and links.",
+};
+
+export default function LetsFunPage() {
+  return (
+    <>
+      <PageHeader
+        path="~/play"
+        title="Playground"
+        lede="A small shell wired to this site's data. Poke around, open a project, or head to Brain mode for a quiz."
+      >
+        <Button href="/brain-mode" variant="ghost" icon={<ArrowRight size={15} />}>
+          Brain mode
+        </Button>
+      </PageHeader>
+      <section className="mx-auto w-full max-w-shell px-5 py-16 sm:px-8 sm:py-20">
+        <Terminal />
+      </section>
+    </>
+  );
+}
