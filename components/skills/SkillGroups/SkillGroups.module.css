@@ -1,0 +1,139 @@
+.disciplines {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background:
+    radial-gradient(80% 140% at 0% 0%, rgba(59, 130, 246, 0.08), transparent 60%),
+    rgba(10, 13, 18, 0.9);
+}
+
+.discipline {
+  padding: 1.25rem 1.4rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.discipline:last-child {
+  border-bottom: 0;
+}
+
+/* 2 columns: divider between the pair, rule under the first row */
+@media (min-width: 640px) and (max-width: 1023px) {
+  .discipline:nth-child(odd) {
+    border-right: 1px solid var(--line);
+  }
+
+  .discipline:nth-last-child(-n + 2) {
+    border-bottom: 0;
+  }
+}
+
+/* 4 columns: vertical dividers only */
+@media (min-width: 1024px) {
+  .discipline {
+    border-bottom: 0;
+    border-right: 1px solid var(--line);
+  }
+
+  .discipline:last-child {
+    border-right: 0;
+  }
+}
+
+.disciplineIndex {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  color: var(--cyan);
+}
+
+.disciplineName {
+  margin-top: 0.9rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+.disciplineDetail {
+  margin-top: 0.2rem;
+  font-size: 13.5px;
+  color: var(--fg-muted);
+}
+
+.group {
+  height: 100%;
+  padding: 1.4rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: linear-gradient(180deg, rgba(14, 18, 24, 0.92), rgba(10, 13, 18, 0.92));
+}
+
+.groupTitle {
+  font-size: 1.3rem;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+}
+
+.blurb {
+  margin-top: 0.25rem;
+  font-size: 14px;
+  color: var(--fg-muted);
+}
+
+.count {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--fg-faint);
+}
+
+.tiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(9.5rem, 1fr));
+  gap: 0.5rem;
+}
+
+.tile {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-width: 0;
+  padding: 0.6rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: rgba(5, 7, 10, 0.5);
+  transition:
+    border-color 0.25s var(--ease-out),
+    transform 0.25s var(--ease-out),
+    background-color 0.25s var(--ease-out);
+}
+
+.tile:hover {
+  transform: translateY(-2px);
+  border-color: rgba(34, 211, 238, 0.28);
+  background: rgba(34, 211, 238, 0.03);
+}
+
+.iconWrap {
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  background: var(--surface-3);
+}
+
+.icon {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  transition: transform 0.3s var(--ease-out);
+}
+
+.tile:hover .icon {
+  transform: scale(1.1);
+}
+
+.name {
+  overflow: hidden;
+  font-size: 13.5px;
+  line-height: 1.3;
+  color: var(--fg);
+}
