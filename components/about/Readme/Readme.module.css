@@ -1,0 +1,174 @@
+/* table of contents */
+.toc {
+  position: sticky;
+  top: calc(var(--nav-h) + 2rem);
+}
+
+.tocTitle {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  color: var(--fg-faint);
+}
+
+.tocLink {
+  display: flex;
+  gap: 0.75rem;
+  padding: 0.35rem 0.6rem;
+  border-left: 1px solid var(--line);
+  font-size: 13.5px;
+  color: var(--fg-muted);
+  transition:
+    color 0.2s var(--ease-out),
+    border-color 0.2s var(--ease-out);
+}
+
+.tocLink:hover {
+  color: var(--fg);
+}
+
+.tocLinkActive {
+  border-left-color: var(--cyan);
+  color: var(--fg);
+}
+
+.tocIndex {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  line-height: 1.8;
+  color: var(--fg-faint);
+}
+
+/* file viewer */
+.file {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: rgba(10, 13, 18, 0.92);
+}
+
+.bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0 1rem;
+  border-bottom: 1px solid var(--line);
+  background: var(--surface-2);
+}
+
+.tab {
+  padding: 0.7rem 0.2rem;
+  border-bottom: 1px solid var(--cyan);
+  margin-bottom: -1px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--fg);
+}
+
+.barMeta {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  color: var(--fg-faint);
+}
+
+.doc {
+  padding: clamp(1.25rem, 4vw, 2.75rem);
+}
+
+.hash {
+  margin-right: 0.6rem;
+  font-family: var(--font-mono);
+  font-weight: 400;
+  color: var(--fg-faint);
+}
+
+.h1 {
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-weight: 600;
+  letter-spacing: -0.035em;
+}
+
+.quote {
+  margin: 1.25rem 0 0;
+  padding-left: 1rem;
+  border-left: 2px solid var(--blue);
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--fg-muted);
+}
+
+.section {
+  margin-top: 2.75rem;
+  scroll-margin-top: calc(var(--nav-h) + 1.5rem);
+}
+
+.h2 {
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--line);
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.body {
+  margin-top: 1rem;
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--fg-muted);
+}
+
+.body p + ul {
+  margin-top: 0.75rem;
+}
+
+.body ul:not(.links) {
+  display: grid;
+  gap: 0.5rem;
+  padding-left: 1.1rem;
+  list-style: none;
+}
+
+.body ul:not(.links) li {
+  position: relative;
+}
+
+.body ul:not(.links) li::before {
+  content: "-";
+  position: absolute;
+  left: -1.1rem;
+  font-family: var(--font-mono);
+  color: var(--fg-faint);
+}
+
+.body strong {
+  font-weight: 500;
+  color: var(--fg);
+}
+
+.links li a {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.6rem 0;
+  border-bottom: 1px dashed var(--line);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  transition: color 0.2s var(--ease-out);
+}
+
+.links li a span:first-child {
+  color: var(--fg-faint);
+}
+
+.links li a span:last-child {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--fg);
+}
+
+.links li a:hover span:last-child {
+  color: var(--cyan);
+}

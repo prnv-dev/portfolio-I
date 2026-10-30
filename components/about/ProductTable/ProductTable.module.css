@@ -1,0 +1,95 @@
+.table {
+  font-size: 14px;
+}
+
+.head,
+.row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 6rem 2rem;
+  grid-template-areas:
+    "name platform link"
+    "summary summary summary";
+  column-gap: 1rem;
+  align-items: baseline;
+}
+
+.head {
+  grid-template-areas: "name platform link";
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--line);
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  color: var(--fg-faint);
+}
+
+.head > :nth-child(3) {
+  display: none;
+}
+
+.row {
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--line);
+  transition: background-color 0.2s var(--ease-out);
+}
+
+.row:last-child {
+  border-bottom: 0;
+}
+
+.name {
+  grid-area: name;
+  font-weight: 500;
+  color: var(--fg);
+}
+
+.platform {
+  grid-area: platform;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--fg-muted);
+}
+
+.summary {
+  grid-area: summary;
+  margin-top: 0.35rem;
+  color: var(--fg-muted);
+}
+
+.link {
+  grid-area: link;
+  justify-self: end;
+}
+
+.link a {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-sm);
+  color: var(--fg-faint);
+  transition:
+    color 0.2s var(--ease-out),
+    background-color 0.2s var(--ease-out);
+}
+
+.link a:hover {
+  color: var(--cyan);
+  background: rgba(34, 211, 238, 0.08);
+}
+
+@media (min-width: 768px) {
+  .head,
+  .row {
+    grid-template-columns: 13rem 6rem minmax(0, 1fr) 2rem;
+    grid-template-areas: "name platform summary link";
+  }
+
+  .head > :nth-child(3) {
+    display: block;
+    grid-area: summary;
+  }
+
+  .summary {
+    margin-top: 0;
+  }
+}

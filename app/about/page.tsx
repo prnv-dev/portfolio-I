@@ -1,8 +1,35 @@
-"use client";
-import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
-import Link from "next/link";
-const skills=["Python","API Integration","ChatGPT and AI tools","Web Development","AI / ML","Desktop Application Development","AI-Assisted Development","Reverse Engineering"];
-const experience=["Developed desktop applications with secure licensing systems and automatic update mechanisms","Created modern web applications and professional portfolios using contemporary frameworks","Integrated AI-assisted workflows to optimize development processes and debugging","Managed complete software development lifecycle from conception to deployment"];
-const Reveal=({children,className=""}:{children:React.ReactNode,className?:string})=><motion.div initial={{opacity:0,y:20}} whileInView={{opacity:1,y:0}} viewport={{once:true,margin:"-80px"}} transition={{duration:.5}} className={className}>{children}</motion.div>;
-export default function AboutPage(){return <div className="page-shell page-top"><header className="grid gap-8 lg:grid-cols-[.8fr_1.2fr] lg:items-end"><div><span className="eyebrow"><span className="eyebrow-dot"/>About me</span><h1 className="display-title mt-5">Pranav <span className="gradient-text">Kadam.</span></h1></div><p className="muted-copy max-w-2xl text-lg">Software Engineer focused on desktop, web and AI applications — combining traditional engineering principles with modern AI-assisted workflows.</p></header><div className="mt-14 grid gap-5 lg:grid-cols-12"><Reveal className="premium-panel p-7 sm:p-9 lg:col-span-8"><p className="text-xs font-bold uppercase tracking-[.16em] text-purple-300">Professional summary</p><p className="mt-6 text-lg leading-8 text-zinc-300">I am a dedicated Software Engineer specializing in developing robust desktop applications (EXE), modern web applications, and AI-powered tools. My approach combines traditional software engineering principles with cutting-edge AI technologies to deliver efficient solutions. I leverage AI tools like ChatGPT to accelerate development cycles and enhance debugging processes, enabling faster problem-solving and innovation in software development.</p></Reveal><Reveal className="premium-panel p-7 sm:p-9 lg:col-span-4"><p className="text-xs font-bold uppercase tracking-[.16em] text-purple-300">Education</p><h2 className="mt-6 text-2xl font-semibold">Bachelor of Technology</h2><p className="mt-2 text-zinc-400">Artificial Intelligence &amp; Machine Learning</p></Reveal><Reveal className="premium-panel p-7 sm:p-9 lg:col-span-5"><p className="text-xs font-bold uppercase tracking-[.16em] text-purple-300">Technical skills</p><div className="mt-6 flex flex-wrap gap-2">{skills.map(skill=><span key={skill} className="rounded-lg border border-white/10 bg-white/[.035] px-3 py-2 text-sm text-zinc-300">{skill}</span>)}</div></Reveal><Reveal className="premium-panel p-7 sm:p-9 lg:col-span-7"><p className="text-xs font-bold uppercase tracking-[.16em] text-purple-300">Professional experience</p><div className="mt-6 space-y-5">{experience.map((item,i)=><div key={item} className="grid grid-cols-[2rem_1fr] gap-3"><span className="font-mono text-sm text-purple-300">0{i+1}</span><p className="text-zinc-300">{item}</p></div>)}</div></Reveal></div><div className="mt-8 flex flex-wrap gap-3"><Link href="/resume" className="button-primary focus-ring">View resume <ArrowUpRight size={16}/></Link><Link href="/contact" className="button-secondary focus-ring">Connect with me</Link></div></div>}
+import type { Metadata } from "next";
+import { ArrowRight, FileText } from "lucide-react";
+import AboutGrid from "@/components/about/AboutGrid/AboutGrid";
+import Button from "@/components/shared/Button/Button";
+import PageHeader from "@/components/shared/PageHeader/PageHeader";
+
+export const metadata: Metadata = {
+  title: "About",
+  description:
+    "Pranav Kadam — final-year AIML engineering student at Sandip University, Nashik, building a multi-product software company.",
+};
+
+export default function AboutPage() {
+  return (
+    <>
+      <PageHeader
+        path="~/about"
+        title="About Pranav"
+        lede="Final-year AIML engineering student, building a software company out of Nashik. The short version is below; the longer one is in the README."
+      >
+        <div className="flex flex-wrap gap-3">
+          <Button href="/about-pranav" icon={<ArrowRight size={15} />}>
+            Read the README
+          </Button>
+          <Button href="/resume" variant="ghost" icon={<FileText size={15} />}>
+            Resume
+          </Button>
+        </div>
+      </PageHeader>
+      <section className="mx-auto w-full max-w-shell px-5 py-16 sm:px-8 sm:py-20">
+        <AboutGrid />
+      </section>
+    </>
+  );
+}
