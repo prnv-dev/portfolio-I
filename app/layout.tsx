@@ -7,7 +7,6 @@ import Navbar from "@/components/layout/Navbar/Navbar";
 import SiteBackground from "@/components/layout/SiteBackground/SiteBackground";
 import NovaWidget from "@/components/nova/NovaWidget/NovaWidget";
 import "./globals.css";
-import "./legacy.css";
 
 const TITLE = "Pranav Kadam — Software Engineer";
 const DESCRIPTION =
