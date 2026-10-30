@@ -11,7 +11,6 @@ export default function WorkList() {
   return (
     <section className={styles.section} aria-label="Shipped work">
       <div className={styles.aside}>
-        <p className={styles.index}>(03)</p>
         <SplitReveal as="h2" lines={["Shipped,", "and in", "production."]} className={styles.title} />
         <p className={styles.count}>
           <span className={styles.countNumber}>{String(LIVE.length).padStart(2, "0")}</span>

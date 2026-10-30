@@ -60,7 +60,6 @@ export default function ProductReel() {
     <section ref={root} className={styles.reel} aria-label="The product line">
       <div ref={track} className={styles.track}>
         <div className={styles.intro}>
-          <p className={styles.introIndex}>(02)</p>
           <h2 className={styles.introTitle}>
             Five products.
             <br />

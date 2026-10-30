@@ -47,7 +47,7 @@ export default function Navbar() {
   }, [open]);
 
   return (
-    <header className={clsx(styles.header, solid && styles.solid, hidden && !open && styles.hidden)}>
+    <header className={clsx(styles.header, solid && styles.solid, hidden && !open && styles.hidden, open && styles.open)}>
       <div className={styles.bar}>
         <Link href="/" className={styles.wordmark} aria-label="Pranav Kadam — home">
           Pranav Kadam

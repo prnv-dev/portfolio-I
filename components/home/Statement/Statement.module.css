@@ -13,6 +13,7 @@
 }
 
 .side {
+  display: none;
   padding-top: 0.6em;
   font-size: 13px;
   color: var(--fg-faint);
@@ -37,4 +38,10 @@
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+}
+
+@media (min-width: 900px) {
+  .side {
+    display: block;
+  }
 }

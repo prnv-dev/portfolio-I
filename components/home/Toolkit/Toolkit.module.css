@@ -21,6 +21,7 @@
 }
 
 .index {
+  display: none;
   padding-top: 0.8em;
   font-size: 13px;
   color: var(--fg-faint);
@@ -128,4 +129,10 @@
 
 .more:hover span {
   transform: translateX(4px);
+}
+
+@media (min-width: 900px) {
+  .index {
+    display: block;
+  }
 }

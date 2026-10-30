@@ -24,13 +24,7 @@
   }
 }
 
-.index {
-  font-size: 13px;
-  color: var(--fg-faint);
-}
-
 .title {
-  margin-top: 1.25rem;
   font-family: var(--font-display);
   font-size: clamp(2.6rem, 5.6vw, 5.6rem);
   font-weight: 700;

@@ -27,6 +27,11 @@
   transform: translateY(-100%);
 }
 
+/* menu open: sit above the Nova launcher */
+.open {
+  z-index: 70;
+}
+
 .bar {
   display: flex;
   align-items: center;
