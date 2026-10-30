@@ -47,7 +47,7 @@ export default function ResumeViewer() {
       </figure>
 
       <aside className={styles.glance}>
-        <p className={styles.label}>{"// at a glance"}</p>
+        <h2 className={styles.label}>At a glance</h2>
         <dl className={styles.facts}>
           <div>
             <dt>role</dt>
@@ -68,7 +68,7 @@ export default function ResumeViewer() {
             <dd>{PROFILE.languages.join(", ")}</dd>
           </div>
         </dl>
-        <p className={`${styles.label} mt-6`}>{"// skills"}</p>
+        <h2 className={`${styles.label} mt-8`}>Skills on the resume</h2>
         <ul className={styles.skills}>
           {RESUME_SKILLS.map((skill) => (
             <li key={skill}>{skill}</li>

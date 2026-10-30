@@ -142,7 +142,7 @@ export default function NovaWidget() {
               </button>
             </header>
 
-            <div className={clsx(styles.messages, "thin-scrollbar")} aria-live="polite">
+            <div className={clsx(styles.messages, "thin-scrollbar")} aria-live="polite" data-lenis-prevent>
               {messages.map((message) => (
                 <div
                   key={message.id}

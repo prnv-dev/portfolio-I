@@ -21,11 +21,10 @@ export default async function GithubPage() {
   return (
     <>
       <PageHeader
-        path="~/github"
-        title="Building in the open"
+        title={["Building", "in the open"]}
         lede="Live from the GitHub API and refreshed hourly — the repositories I've pushed to most recently."
       />
-      <section className="mx-auto w-full max-w-shell px-5 py-16 sm:px-8 sm:py-20">
+      <section className="px-gutter py-16 sm:py-24">
         {user && repos ? (
           <div className="grid items-start gap-3 lg:grid-cols-[22rem_minmax(0,1fr)]">
             <div className="lg:sticky lg:top-[calc(var(--nav-h)+2rem)]">

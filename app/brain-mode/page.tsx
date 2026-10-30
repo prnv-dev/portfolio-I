@@ -12,11 +12,10 @@ export default function BrainModePage() {
   return (
     <>
       <PageHeader
-        path="~/play/brain-mode"
-        title="Brain mode"
+        title={["Brain", "mode"]}
         lede={`${QUIZ.length} JavaScript snippets. Read each one and predict what it prints — coercion, the event loop, scoping and a few classics.`}
       />
-      <section className="mx-auto w-full max-w-shell px-5 py-16 sm:px-8 sm:py-20">
+      <section className="px-gutter py-16 sm:py-24">
         <BrainQuiz />
       </section>
     </>

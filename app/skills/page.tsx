@@ -12,11 +12,10 @@ export default function SkillsPage() {
   return (
     <>
       <PageHeader
-        path="~/skills"
         title="Toolkit"
         lede={`${ALL_SKILLS.length} tools across web, systems, AI and everyday tooling — the stack behind the desktop apps, web platforms and AI products.`}
       />
-      <section className="mx-auto w-full max-w-shell px-5 py-16 sm:px-8 sm:py-20">
+      <section className="px-gutter py-16 sm:py-24">
         <SkillGroups />
       </section>
     </>

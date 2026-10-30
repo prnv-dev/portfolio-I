@@ -1,92 +1,126 @@
-.panel {
-  padding: clamp(1.25rem, 3vw, 1.75rem);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-lg);
-  background: linear-gradient(180deg, rgba(14, 18, 24, 0.92), rgba(10, 13, 18, 0.92));
-}
-
-.label {
-  font-family: var(--font-mono);
-  font-size: 12px;
-  color: var(--fg-faint);
-}
-
-.prose {
+.about {
   display: grid;
-  gap: 1rem;
-  max-width: 60ch;
-  font-size: 16.5px;
-  line-height: 1.7;
-  color: var(--fg-muted);
+  gap: clamp(5rem, 10vw, 8rem);
 }
 
-.prose p:first-child {
-  font-size: clamp(1.2rem, 2vw, 1.4rem);
-  line-height: 1.45;
-  letter-spacing: -0.02em;
-  color: var(--fg);
-}
-
-.iconTile {
-  display: grid;
-  flex-shrink: 0;
-  place-items: center;
-  width: 40px;
-  height: 40px;
-  border: 1px solid var(--line-strong);
-  border-radius: var(--radius);
-  background: var(--surface-3);
-  color: var(--cyan);
-}
-
-.strong {
+/* pull statement, pushed right for asymmetry */
+.lead {
+  max-width: 24ch;
+  margin-left: auto;
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4vw, 3.6rem);
   font-weight: 500;
-  color: var(--fg);
+  line-height: 1.08;
+  letter-spacing: -0.04em;
 }
 
-.muted {
-  margin-top: 0.25rem;
-  font-size: 14px;
-  color: var(--fg-muted);
+@media (min-width: 900px) {
+  .lead {
+    margin-left: 25%;
+  }
 }
 
-.period {
-  font-family: var(--font-mono);
-  font-size: 12px;
-  color: var(--cyan);
+.split {
+  display: grid;
+  gap: 3rem;
+}
+
+@media (min-width: 900px) {
+  .split {
+    grid-template-columns: 4fr 7fr;
+    gap: 5rem;
+  }
 }
 
 .facts {
   display: grid;
+  align-self: start;
+}
+
+.facts > div {
+  display: grid;
+  grid-template-columns: 8rem minmax(0, 1fr);
   gap: 1rem;
+  padding: 0.95rem 0;
+  border-bottom: 1px solid var(--line);
 }
 
 .facts dt {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  font-family: var(--font-mono);
-  font-size: 11.5px;
+  font-size: 13.5px;
   color: var(--fg-faint);
 }
 
 .facts dd {
-  margin: 0.3rem 0 0;
-  color: var(--fg);
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.prose {
+  display: grid;
+  gap: 1.25rem;
+  max-width: 58ch;
+  font-size: clamp(1.05rem, 1.4vw, 1.25rem);
+  line-height: 1.7;
+  color: var(--fg-muted);
+}
+
+.block {
+  display: grid;
+  gap: 1.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--line);
+}
+
+.blockHead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.h2 {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 5vw, 4.5rem);
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: -0.05em;
+}
+
+.period {
+  font-size: 14px;
+  color: var(--cyan);
+}
+
+.role {
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.points {
+  display: grid;
+  gap: 1.1rem 4rem;
+  margin-top: 0.5rem;
+}
+
+@media (min-width: 900px) {
+  .points {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 .points li {
   display: grid;
-  grid-template-columns: 2rem 1fr;
-  gap: 0.5rem;
-  font-size: 14.5px;
+  grid-template-columns: 2.5rem minmax(0, 1fr);
+  font-size: 15.5px;
   line-height: 1.6;
   color: var(--fg-muted);
 }
 
 .pointIndex {
-  font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: 13px;
   line-height: 1.9;
   color: var(--fg-faint);
+  font-variant-numeric: tabular-nums;
 }

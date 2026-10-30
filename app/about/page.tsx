@@ -14,8 +14,7 @@ export default function AboutPage() {
   return (
     <>
       <PageHeader
-        path="~/about"
-        title="About Pranav"
+        title={["About", "Pranav"]}
         lede="Final-year AIML engineering student, building a software company out of Nashik. The short version is below; the longer one is in the README."
       >
         <div className="flex flex-wrap gap-3">
@@ -27,7 +26,7 @@ export default function AboutPage() {
           </Button>
         </div>
       </PageHeader>
-      <section className="mx-auto w-full max-w-shell px-5 py-16 sm:px-8 sm:py-20">
+      <section className="px-gutter py-16 sm:py-24">
         <AboutGrid />
       </section>
     </>

@@ -13,7 +13,6 @@ export default function LetsFunPage() {
   return (
     <>
       <PageHeader
-        path="~/play"
         title="Playground"
         lede="A small shell wired to this site's data. Poke around, open a project, or head to Brain mode for a quiz."
       >
@@ -21,7 +20,7 @@ export default function LetsFunPage() {
           Brain mode
         </Button>
       </PageHeader>
-      <section className="mx-auto w-full max-w-shell px-5 py-16 sm:px-8 sm:py-20">
+      <section className="px-gutter py-16 sm:py-24">
         <Terminal />
       </section>
     </>

@@ -331,15 +331,11 @@ export default function Terminal() {
     <div>
       <div className={styles.window}>
         <div className={styles.titlebar}>
-          <span className={styles.dots} aria-hidden="true">
-            <span />
-            <span />
-            <span />
-          </span>
-          <span className={styles.title}>{PROMPT.replace("$", "")} — zsh</span>
+          <span className={styles.title}>Shell over this site&apos;s data</span>
+          <span className={styles.title}>Tab completes · ↑ ↓ history · Ctrl+L clears</span>
         </div>
         {/* Clicking anywhere in the body focuses the prompt, like a real terminal. */}
-        <div ref={bodyRef} className={clsx(styles.body, "thin-scrollbar")} onClick={() => inputRef.current?.focus()}>
+        <div ref={bodyRef} className={clsx(styles.body, "thin-scrollbar")} onClick={() => inputRef.current?.focus()} data-lenis-prevent>
           <div aria-live="polite">
             {entries.map((entry) => (
               <div key={entry.id} className={styles.entry}>

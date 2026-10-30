@@ -1,41 +1,46 @@
-import type { ReactNode } from "react";
-import DotGrid from "@/components/animations/dot-grid/DotGrid";
-import ShinyText from "@/components/animations/shiny-text/ShinyText";
+"use client";
+
+import { useLayoutEffect, useRef, type ReactNode } from "react";
+import SplitReveal from "@/components/shared/SplitReveal/SplitReveal";
+import { gsap } from "@/lib/gsap";
 import styles from "./PageHeader.module.css";
 
 interface PageHeaderProps {
-  /** Shell-style path shown above the title, e.g. "~/projects". */
-  path: string;
-  title: string;
+  /** Title split into art-directed lines. */
+  title: string | string[];
   lede?: ReactNode;
   children?: ReactNode;
 }
 
-export default function PageHeader({ path, title, lede, children }: PageHeaderProps) {
+// Inner-page opener: a huge masked title on the left, the lede offset low and right.
+// As the page scrolls, the title lifts slower than the content for a soft hand-off.
+export default function PageHeader({ title, lede, children }: PageHeaderProps) {
+  const root = useRef<HTMLElement>(null);
+  const lines = Array.isArray(title) ? title : [title];
+
+  useLayoutEffect(() => {
+    const el = root.current;
+    if (!el) return;
+    const mm = gsap.matchMedia();
+    mm.add("(prefers-reduced-motion: no-preference)", () => {
+      const scrub = { trigger: el, start: "top top", end: "bottom top", scrub: 1 };
+      gsap.to(el.querySelector(`.${styles.title}`), { yPercent: -18, ease: "none", scrollTrigger: scrub });
+      gsap.to(el.querySelector(`.${styles.glow}`), { yPercent: 25, ease: "none", scrollTrigger: scrub });
+    });
+    return () => mm.revert();
+  }, []);
+
   return (
-    <section className={styles.header}>
-      <div className={styles.backdrop} aria-hidden="true">
-        <DotGrid
-          dotSize={2}
-          gap={20}
-          baseColor="#1a212b"
-          activeColor="#22d3ee"
-          proximity={110}
-          shockStrength={3}
-          glow={0.6}
-          fade={0.7}
-          clickShock={false}
-        />
-      </div>
-      <div className={`${styles.inner} relative mx-auto w-full max-w-shell px-5 sm:px-8`}>
-        <p className={styles.path}>
-          <span className={styles.prompt}>$</span> cd {path}
-        </p>
-        <h1 className={`${styles.title} mt-5`}>
-          <ShinyText text={title} color="#dfe4ea" shineColor="#ffffff" speed={2} delay={5} angle={110} shineWidth={26} />
-        </h1>
-        {lede ? <div className={`${styles.lede} mt-5`}>{lede}</div> : null}
-        {children ? <div className="mt-8">{children}</div> : null}
+    <section ref={root} className={styles.header}>
+      <div className={styles.glow} aria-hidden="true" />
+      <div className={styles.inner}>
+        <SplitReveal as="h1" trigger="load" lines={lines} className={styles.title} />
+        {lede || children ? (
+          <div className={styles.aside}>
+            {lede ? <div className={styles.lede}>{lede}</div> : null}
+            {children ? <div className={styles.actions}>{children}</div> : null}
+          </div>
+        ) : null}
       </div>
     </section>
   );
