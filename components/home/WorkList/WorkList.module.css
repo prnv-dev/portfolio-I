@@ -1,0 +1,84 @@
+.section {
+  display: grid;
+  gap: 3rem;
+  padding: clamp(7rem, 14vw, 12rem) var(--gutter);
+  border-top: 1px solid var(--line);
+}
+
+@media (min-width: 900px) {
+  .section {
+    grid-template-columns: 5fr 7fr;
+    gap: 4rem;
+  }
+}
+
+/* the heading column holds still while the list scrolls past it */
+.aside {
+  align-self: start;
+}
+
+@media (min-width: 900px) {
+  .aside {
+    position: sticky;
+    top: calc(var(--nav-h) + 3rem);
+  }
+}
+
+.index {
+  font-size: 13px;
+  color: var(--fg-faint);
+}
+
+.title {
+  margin-top: 1.25rem;
+  font-family: var(--font-display);
+  font-size: clamp(2.6rem, 5.6vw, 5.6rem);
+  font-weight: 700;
+  line-height: 0.92;
+  letter-spacing: -0.05em;
+}
+
+.count {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin-top: 2.5rem;
+  font-size: 14px;
+  color: var(--fg-muted);
+}
+
+.countNumber {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  color: var(--cyan);
+}
+
+.all {
+  display: inline-flex;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid var(--line-strong);
+  font-size: 15px;
+  color: var(--fg);
+  transition: border-color 0.3s var(--ease-out);
+}
+
+.all span {
+  display: inline-block;
+  transition: transform 0.4s var(--ease-expo);
+}
+
+.all:hover {
+  border-color: var(--cyan);
+}
+
+.all:hover span {
+  transform: translateX(4px);
+}
+
+.list {
+  border-top: 1px solid var(--line);
+}

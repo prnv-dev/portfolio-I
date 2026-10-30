@@ -1,17 +1,17 @@
-import ContactBand from "@/components/home/ContactBand/ContactBand";
-import FeatureGrid from "@/components/home/FeatureGrid/FeatureGrid";
 import Hero from "@/components/home/Hero/Hero";
-import ProjectsPreview from "@/components/home/ProjectsPreview/ProjectsPreview";
-import SkillsPreview from "@/components/home/SkillsPreview/SkillsPreview";
+import ProductReel from "@/components/home/ProductReel/ProductReel";
+import Statement from "@/components/home/Statement/Statement";
+import Toolkit from "@/components/home/Toolkit/Toolkit";
+import WorkList from "@/components/home/WorkList/WorkList";
 
 export default function HomePage() {
   return (
     <>
       <Hero />
-      <FeatureGrid />
-      <ProjectsPreview />
-      <SkillsPreview />
-      <ContactBand />
+      <Statement />
+      <ProductReel />
+      <WorkList />
+      <Toolkit />
     </>
   );
 }

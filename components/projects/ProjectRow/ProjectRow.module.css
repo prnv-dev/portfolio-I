@@ -1,0 +1,145 @@
+.row {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  grid-template-columns: 2.5rem minmax(0, 1fr);
+  grid-template-areas:
+    "index main"
+    ". meta";
+  gap: 0.6rem 1rem;
+  padding: 1.6rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.detailed {
+  grid-template-areas:
+    "index main"
+    ". description"
+    ". meta";
+}
+
+@media (min-width: 900px) {
+  .row {
+    grid-template-columns: 3.5rem minmax(0, 1fr) auto;
+    grid-template-areas: "index main meta";
+    align-items: baseline;
+    padding: 2rem 0;
+  }
+
+  .detailed {
+    grid-template-columns: 3.5rem minmax(0, 1.1fr) minmax(0, 1fr) 13rem;
+    grid-template-areas: "index main description meta";
+  }
+}
+
+/* hover: an accent hairline wipes across, a soft field rises behind */
+.row::before,
+.row::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+}
+
+.row::before {
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 1px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.7s var(--ease-expo);
+}
+
+.row::after {
+  inset: 0 calc(var(--gutter) * -0.5);
+  z-index: -1;
+  background: linear-gradient(90deg, rgba(59, 130, 246, 0.07), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s var(--ease-out);
+}
+
+a.row:hover::before,
+a.row:focus-visible::before {
+  transform: scaleX(1);
+}
+
+a.row:hover::after {
+  opacity: 1;
+}
+
+.index {
+  grid-area: index;
+  font-size: 13px;
+  color: var(--fg-faint);
+  font-variant-numeric: tabular-nums;
+}
+
+.main {
+  grid-area: main;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.35rem 1.25rem;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3.6vw, 3.2rem);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  transition: transform 0.6s var(--ease-expo);
+}
+
+a.row:hover .title {
+  transform: translateX(10px);
+}
+
+.category {
+  font-size: 13.5px;
+  color: var(--fg-faint);
+}
+
+.description {
+  grid-area: description;
+  max-width: 44ch;
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--fg-muted);
+}
+
+.meta {
+  grid-area: meta;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.5rem;
+  min-width: 0;
+  overflow: hidden;
+  font-size: 13.5px;
+  color: var(--fg-muted);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+@media (min-width: 900px) {
+  .meta {
+    justify-content: flex-end;
+  }
+}
+
+.arrow {
+  display: inline-block;
+  color: var(--fg);
+  transition: transform 0.45s var(--ease-expo), color 0.25s var(--ease-out);
+}
+
+a.row:hover .arrow {
+  color: var(--cyan);
+  transform: translate(3px, -3px);
+}
+
+.muted .title {
+  color: var(--fg-muted);
+}

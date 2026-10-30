@@ -1,0 +1,180 @@
+.reel {
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid var(--line);
+  background: var(--surface);
+}
+
+/* mobile / reduced motion: a vertical stack */
+.track {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 900px) and (prefers-reduced-motion: no-preference) {
+  .track {
+    flex-direction: row;
+    width: max-content;
+    height: 100svh;
+  }
+}
+
+.intro,
+.panel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: clamp(5rem, 10vh, 7rem) var(--gutter) 3rem;
+}
+
+/* stacked layout (mobile / reduced motion) */
+.panel {
+  gap: 2.5rem;
+  border-top: 1px solid var(--line);
+}
+
+@media (min-width: 900px) and (prefers-reduced-motion: no-preference) {
+  .intro {
+    justify-content: center;
+    width: 52vw;
+  }
+
+  .panel {
+    justify-content: space-between;
+    gap: 0;
+    width: 72vw;
+    border-top: 0;
+    border-left: 1px solid var(--line);
+  }
+}
+
+.introIndex {
+  font-size: 13px;
+  color: var(--fg-faint);
+}
+
+.introTitle {
+  margin-top: 1.5rem;
+  font-family: var(--font-display);
+  font-size: clamp(2.6rem, 6.4vw, 6.4rem);
+  font-weight: 700;
+  line-height: 0.92;
+  letter-spacing: -0.05em;
+}
+
+.introDim {
+  color: var(--fg-faint);
+}
+
+.introCopy {
+  max-width: 32ch;
+  margin-top: 2rem;
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--fg-muted);
+}
+
+.panelTop {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.index {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 7vw, 6.5rem);
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -0.05em;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--line-strong);
+}
+
+.platform {
+  font-size: 14px;
+  color: var(--cyan);
+}
+
+.name {
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 8.5vw, 9rem);
+  font-weight: 700;
+  font-variation-settings: "opsz" 96;
+  line-height: 0.9;
+  letter-spacing: -0.055em;
+}
+
+/* long names wrap to two lines rather than spill into the next frame */
+.name {
+  max-width: 11ch;
+  overflow-wrap: anywhere;
+}
+
+.panelBottom {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.5rem 3rem;
+}
+
+.summary {
+  max-width: 34ch;
+  font-size: clamp(1rem, 1.4vw, 1.25rem);
+  line-height: 1.55;
+  color: var(--fg-muted);
+}
+
+.visit {
+  display: inline-flex;
+  gap: 0.4rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid var(--cyan);
+  font-size: 15px;
+  color: var(--fg);
+  transition: color 0.25s var(--ease-out);
+}
+
+.visit span {
+  display: inline-block;
+  transition: transform 0.35s var(--ease-expo);
+}
+
+.visit:hover {
+  color: var(--cyan);
+}
+
+.visit:hover span {
+  transform: translate(2px, -2px);
+}
+
+.soon {
+  font-size: 15px;
+  color: var(--fg-faint);
+}
+
+/* scrubbed progress — shows where you are in the reel */
+.progress {
+  position: absolute;
+  left: var(--gutter);
+  right: var(--gutter);
+  bottom: 1.5rem;
+  display: none;
+  height: 1px;
+  background: var(--line);
+}
+
+@media (min-width: 900px) and (prefers-reduced-motion: no-preference) {
+  .progress {
+    display: block;
+  }
+}
+
+.progressBar {
+  display: block;
+  height: 100%;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+}

@@ -1,6 +1,0 @@
-.section {
-  position: relative;
-  padding: 7rem 0;
-  border-top: 1px solid var(--line);
-  background: linear-gradient(180deg, rgba(10, 13, 18, 0.55), transparent 60%);
-}
