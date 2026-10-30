@@ -1,5 +1,7 @@
+/* backwards fill only: once finished the animation leaves no transform behind, so
+   ancestors never become a containing block for GSAP's position:fixed pins. */
 .enter {
-  animation: enter 0.5s var(--ease-out) both;
+  animation: enter 0.5s var(--ease-out) backwards;
 }
 
 @keyframes enter {

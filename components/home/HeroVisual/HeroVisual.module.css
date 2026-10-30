@@ -1,0 +1,17 @@
+.visual {
+  position: absolute;
+  inset: 0;
+}
+
+/* static fallback settles in rather than popping */
+.still {
+  object-fit: contain;
+  animation: settle 1.6s var(--ease-expo) both;
+}
+
+@keyframes settle {
+  from {
+    opacity: 0;
+    transform: scale(0.94);
+  }
+}

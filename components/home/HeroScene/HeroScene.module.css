@@ -1,0 +1,11 @@
+/* Canvas fades in once the first frame is ready, so the loader hands off without a pop. */
+.canvas {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 1.4s var(--ease-expo);
+}
+
+.ready {
+  opacity: 1;
+}
