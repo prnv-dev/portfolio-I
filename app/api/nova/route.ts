@@ -539,7 +539,10 @@ export async function POST(req: Request) {
     const messages = body.messages ?? [];
 
     const completion = await groq.chat.completions.create({
-      model: "llama-3.1-8b-instant",
+      // llama-3.1-8b-instant was retired on Groq. gpt-oss-20b is a reasoning
+      // model, so keep reasoning light or it eats the token budget.
+      model: "openai/gpt-oss-20b",
+      reasoning_effort: "low",
       messages: [
         { role: "system", content: SYSTEM_PROMPT },
         ...messages,
