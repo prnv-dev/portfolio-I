@@ -82,12 +82,17 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 1rem;
   margin-top: 1.5rem;
   padding: 0.9rem 1.4rem;
   border-top: 1px solid var(--line);
 }
 
 .host {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   font-family: var(--font-mono);
   font-size: 12px;
   color: var(--fg-faint);
