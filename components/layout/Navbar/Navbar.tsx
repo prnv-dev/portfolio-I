@@ -2,47 +2,33 @@
 
 import clsx from "clsx";
 import { AnimatePresence, motion } from "framer-motion";
-import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
-import Button from "@/components/shared/Button/Button";
+import { useEffect, useRef, useState } from "react";
 import { PLAY_NAV, PRIMARY_NAV } from "@/data/navigation";
-import { PROFILE } from "@/data/profile";
+import { PROFILE, SOCIALS } from "@/data/profile";
 import styles from "./Navbar.module.css";
 
-const isActive = (pathname: string, href: string) => pathname === href || pathname.startsWith(`${href}/`);
-
-function LocalClock() {
-  const [time, setTime] = useState<string | null>(null);
-
-  useEffect(() => {
-    const format = new Intl.DateTimeFormat("en-GB", {
-      hour: "2-digit",
-      minute: "2-digit",
-      timeZone: PROFILE.timezone,
-    });
-    const tick = () => setTime(format.format(new Date()));
-    tick();
-    const id = window.setInterval(tick, 15_000);
-    return () => window.clearInterval(id);
-  }, []);
-
-  return (
-    <span className={styles.clock} title="Local time in Nashik">
-      <span className={styles.clockDot} aria-hidden="true" />
-      NSK {time ?? "--:--"}
-    </span>
-  );
-}
+const LINKS = [...PRIMARY_NAV, { label: "Play", href: PLAY_NAV[0].href }];
+const isActive = (pathname: string, href: string) =>
+  pathname === href || pathname.startsWith(`${href}/`) || (href === "/lets-fun" && pathname === "/brain-mode");
 
 export default function Navbar() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  const [hidden, setHidden] = useState(false);
+  const [solid, setSolid] = useState(false);
+  const lastY = useRef(0);
 
+  // Hide while reading downward, return on any upward scroll.
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8);
+    const onScroll = () => {
+      const y = window.scrollY;
+      setSolid(y > 24);
+      setHidden(y > 240 && y > lastY.current + 4);
+      if (y < lastY.current - 4 || y < 240) setHidden(false);
+      lastY.current = y;
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -51,100 +37,99 @@ export default function Navbar() {
   useEffect(() => setOpen(false), [pathname]);
 
   useEffect(() => {
-    document.body.style.overflow = open ? "hidden" : "";
+    document.documentElement.style.overflow = open ? "hidden" : "";
+    const onKey = (event: KeyboardEvent) => event.key === "Escape" && setOpen(false);
+    window.addEventListener("keydown", onKey);
     return () => {
-      document.body.style.overflow = "";
+      document.documentElement.style.overflow = "";
+      window.removeEventListener("keydown", onKey);
     };
   }, [open]);
 
-  const playActive = PLAY_NAV.some((link) => isActive(pathname, link.href));
-
   return (
-    <header className={clsx(styles.header, (scrolled || open) && styles.scrolled)}>
-      <div className="mx-auto flex h-nav w-full max-w-shell items-center gap-6 px-5 sm:px-8">
-        <Link href="/" className={styles.brand} aria-label="Pranav Kadam — home">
-          <span className={styles.mark} aria-hidden="true">
-            pk
-          </span>
-          <span className={styles.wordmark}>
-            pranav<span className={styles.wordmarkDim}>.kadam</span>
-          </span>
+    <header className={clsx(styles.header, solid && styles.solid, hidden && !open && styles.hidden)}>
+      <div className={styles.bar}>
+        <Link href="/" className={styles.wordmark} aria-label="Pranav Kadam — home">
+          Pranav Kadam
         </Link>
 
-        <nav aria-label="Primary" className="hidden items-center gap-1 md:flex">
-          {PRIMARY_NAV.map((link) => {
+        <nav aria-label="Primary" className={styles.links}>
+          {LINKS.map((link) => {
             const active = isActive(pathname, link.href);
             return (
               <Link
                 key={link.href}
                 href={link.href}
-                className={clsx(styles.link, active && styles.linkActive)}
+                className={clsx(styles.link, active && styles.active)}
                 aria-current={active ? "page" : undefined}
               >
-                {active ? <motion.span layoutId="nav-active" className={styles.linkPill} /> : null}
-                <span className="relative">{link.label}</span>
+                {link.label}
               </Link>
             );
           })}
         </nav>
 
-        <div className="ml-auto flex items-center gap-2 sm:gap-3">
-          <span className="hidden lg:inline-flex">
-            <LocalClock />
+        <Link href="/contact" className={styles.contact}>
+          Contact <span aria-hidden="true">↗</span>
+        </Link>
+
+        <button
+          type="button"
+          className={styles.menuButton}
+          aria-expanded={open}
+          aria-controls="site-menu"
+          onClick={() => setOpen((value) => !value)}
+        >
+          <span>{open ? "Close" : "Menu"}</span>
+          <span className={clsx(styles.burger, open && styles.burgerOpen)} aria-hidden="true">
+            <span />
+            <span />
           </span>
-          <Link href="/lets-fun" className={clsx(styles.play, playActive && styles.playActive, "hidden sm:inline-flex")}>
-            ~/play
-          </Link>
-          <span className="hidden sm:inline-flex">
-            <Button href="/contact" size="sm">
-              Contact
-            </Button>
-          </span>
-          <button
-            type="button"
-            className={styles.menuButton}
-            aria-label={open ? "Close menu" : "Open menu"}
-            aria-expanded={open}
-            aria-controls="mobile-nav"
-            onClick={() => setOpen((value) => !value)}
-          >
-            {open ? <X size={18} /> : <Menu size={18} />}
-          </button>
-        </div>
+        </button>
       </div>
 
       <AnimatePresence>
         {open ? (
-          <motion.nav
-            id="mobile-nav"
-            aria-label="Mobile"
-            className={styles.sheet}
-            initial={{ opacity: 0, y: -6 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -6 }}
-            transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
+          <motion.div
+            id="site-menu"
+            className={styles.overlay}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.25 }}
           >
-            <ul className="flex flex-col px-5 py-4">
-              {[{ label: "Home", href: "/" }, ...PRIMARY_NAV, { label: "Contact", href: "/contact" }, ...PLAY_NAV].map(
-                (link, index) => (
-                  <motion.li
-                    key={link.href}
-                    initial={{ opacity: 0, x: -6 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.03 * index, duration: 0.25 }}
-                  >
-                    <Link
-                      href={link.href}
-                      className={clsx(styles.sheetLink, pathname === link.href && styles.sheetLinkActive)}
+            <nav aria-label="Menu">
+              <ul className={styles.overlayList}>
+                {[{ label: "Home", href: "/" }, ...LINKS, { label: "Contact", href: "/contact" }].map((link, index) => (
+                  <li key={link.href} className={styles.overlayItem}>
+                    <motion.span
+                      className="block"
+                      initial={{ y: "110%" }}
+                      animate={{ y: 0 }}
+                      transition={{ delay: 0.04 * index, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
                     >
-                      <span className={styles.sheetIndex}>{String(index).padStart(2, "0")}</span>
-                      {link.label}
-                    </Link>
-                  </motion.li>
-                ),
-              )}
-            </ul>
-          </motion.nav>
+                      <Link
+                        href={link.href}
+                        className={clsx(styles.overlayLink, pathname === link.href && styles.overlayActive)}
+                      >
+                        {link.label}
+                      </Link>
+                    </motion.span>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+            <div className={styles.overlayMeta}>
+              <a href={`mailto:${PROFILE.email}`}>{PROFILE.email}</a>
+              <div className="flex flex-wrap gap-x-5 gap-y-2">
+                {SOCIALS.map((social) => (
+                  <a key={social.key} href={social.href} target="_blank" rel="noreferrer">
+                    {social.label}
+                  </a>
+                ))}
+              </div>
+            </div>
+          </motion.div>
         ) : null}
       </AnimatePresence>
     </header>

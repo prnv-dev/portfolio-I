@@ -13,14 +13,16 @@ const config: Config = {
         cyan: { accent: "var(--cyan)" },
       },
       fontFamily: {
+        display: ["var(--font-display)"],
         sans: ["var(--font-sans)"],
         mono: ["var(--font-mono)"],
       },
       maxWidth: {
-        shell: "1200px",
+        shell: "1440px",
       },
       spacing: {
         nav: "var(--nav-h)",
+        gutter: "var(--gutter)",
       },
     },
   },

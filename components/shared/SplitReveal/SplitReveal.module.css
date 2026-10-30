@@ -1,0 +1,23 @@
+/* Each line is a mask; its inner span rises into it. */
+.line {
+  display: block;
+  overflow: hidden;
+  /* room for descenders so the mask doesn't clip them */
+  padding-bottom: 0.08em;
+  margin-bottom: -0.08em;
+}
+
+.inner {
+  display: inline-block;
+}
+
+.load .inner {
+  animation: rise 1.3s var(--ease-expo) both;
+  animation-delay: calc(var(--delay, 0s) + var(--i, 0) * 0.09s + 0.1s);
+}
+
+@keyframes rise {
+  from {
+    transform: translateY(110%);
+  }
+}

@@ -1,0 +1,5 @@
+/* Initial state for blocks waiting below the fold; GSAP animates them to rest. */
+.root[data-reveal="hidden"] {
+  opacity: 0;
+  transform: translateY(var(--reveal-y, 28px));
+}

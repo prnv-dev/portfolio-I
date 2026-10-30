@@ -1,12 +1,20 @@
 import type { Metadata, Viewport } from "next";
 import type { PropsWithChildren } from "react";
-import { GeistMono } from "geist/font/mono";
 import { GeistSans } from "geist/font/sans";
+import { Bricolage_Grotesque } from "next/font/google";
 import Footer from "@/components/layout/Footer/Footer";
 import Navbar from "@/components/layout/Navbar/Navbar";
-import SiteBackground from "@/components/layout/SiteBackground/SiteBackground";
+import Grain from "@/components/layout/Grain/Grain";
+import SmoothScroll from "@/components/layout/SmoothScroll/SmoothScroll";
 import NovaWidget from "@/components/nova/NovaWidget/NovaWidget";
 import "./globals.css";
+
+const display = Bricolage_Grotesque({
+  subsets: ["latin"],
+  axes: ["opsz", "wdth"],
+  display: "swap",
+  variable: "--font-bricolage",
+});
 
 const TITLE = "Pranav Kadam — Software Engineer";
 const DESCRIPTION =
@@ -15,7 +23,7 @@ const DESCRIPTION =
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#05070a",
+  themeColor: "#07090c",
 };
 
 export const metadata: Metadata = {
@@ -57,15 +65,16 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: PropsWithChildren) {
   return (
-    <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`}>
+    <html lang="en" className={`${GeistSans.variable} ${display.variable}`}>
       <body>
-        <SiteBackground />
+        <SmoothScroll />
         <Navbar />
         <main id="content" className="relative min-h-[100svh]">
           {children}
         </main>
         <Footer />
         <NovaWidget />
+        <Grain />
       </body>
     </html>
   );

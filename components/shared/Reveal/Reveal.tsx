@@ -1,7 +1,8 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
-import type { ReactNode } from "react";
+import { useLayoutEffect, useRef, type ReactNode } from "react";
+import { gsap, prefersReducedMotion } from "@/lib/gsap";
+import styles from "./Reveal.module.css";
 
 interface RevealProps {
   children: ReactNode;
@@ -10,19 +11,38 @@ interface RevealProps {
   className?: string;
 }
 
-// Scroll reveal: fades content up once as it enters the viewport.
-// Behaviour-only wrapper — no visual styling of its own.
-export default function Reveal({ children, delay = 0, y = 14, className }: RevealProps) {
-  const reduce = useReducedMotion();
+// Block-level scroll reveal: content below the fold rises in once as it enters view.
+export default function Reveal({ children, delay = 0, y = 28, className }: RevealProps) {
+  const ref = useRef<HTMLDivElement>(null);
+
+  useLayoutEffect(() => {
+    const el = ref.current;
+    if (!el || prefersReducedMotion()) return;
+    // Already on screen at mount: leave it alone rather than flashing it out and back.
+    if (el.getBoundingClientRect().top < window.innerHeight * 0.9) return;
+    el.dataset.reveal = "hidden";
+    const ctx = gsap.context(() => {
+      gsap.to(el, {
+        opacity: 1,
+        y: 0,
+        duration: 1.1,
+        delay,
+        ease: "power3.out",
+        scrollTrigger: { trigger: el, start: "top 88%", once: true },
+        onStart: () => {
+          el.dataset.reveal = "shown";
+        },
+      });
+    }, el);
+    return () => {
+      ctx.revert();
+      delete el.dataset.reveal;
+    };
+  }, [delay]);
+
   return (
-    <motion.div
-      className={className}
-      initial={reduce ? false : { opacity: 0, y }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-60px" }}
-      transition={{ duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] }}
-    >
+    <div ref={ref} className={`${styles.root} ${className ?? ""}`.trim()} style={{ ["--reveal-y" as string]: `${y}px` }}>
       {children}
-    </motion.div>
+    </div>
   );
 }

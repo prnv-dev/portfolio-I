@@ -6,42 +6,46 @@
 :root {
   color-scheme: dark;
 
-  /* canvas & surfaces */
-  --bg: #05070a;
-  --surface: #0a0d12;
-  --surface-2: #0e1218;
-  --surface-3: #141922;
+  /* canvas & surfaces — graphite, never flat black */
+  --bg: #07090c;
+  --surface: #10141a;
+  --surface-2: #151a22;
+  --surface-3: #1b212b;
 
   /* hairlines */
-  --line: rgba(148, 163, 184, 0.09);
-  --line-strong: rgba(148, 163, 184, 0.16);
+  --line: rgba(233, 231, 226, 0.08);
+  --line-strong: rgba(233, 231, 226, 0.16);
 
-  /* text */
-  --fg: #e6e9ee;
-  --fg-muted: #949eab;
-  --fg-faint: #5a6470;
+  /* type colours — bone, not pure white */
+  --fg: #e9e7e2;
+  --fg-muted: #9a9ea6;
+  --fg-faint: #62676f;
 
-  /* accent */
+  /* the one accent: electric blue → cyan */
   --blue: #3b82f6;
   --cyan: #22d3ee;
   --accent: linear-gradient(90deg, var(--blue), var(--cyan));
-  --accent-soft: rgba(59, 130, 246, 0.1);
-  --accent-ring: rgba(34, 211, 238, 0.55);
+  --accent-soft: rgba(59, 130, 246, 0.12);
+  --accent-ring: rgba(34, 211, 238, 0.6);
 
-  /* shape */
-  --radius-sm: 6px;
-  --radius: 10px;
-  --radius-lg: 14px;
+  /* shape — sharp */
+  --radius-sm: 2px;
+  --radius: 4px;
+  --radius-lg: 6px;
 
   /* motion */
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-expo: cubic-bezier(0.16, 1, 0.3, 1);
 
   /* layout */
-  --nav-h: 60px;
+  --nav-h: 72px;
+  --gutter: clamp(1.25rem, 4vw, 3.5rem);
 
   /* type */
+  --font-display: var(--font-bricolage), "Segoe UI", system-ui, sans-serif;
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-mono: var(--font-geist-mono), ui-monospace, "SFMono-Regular", "JetBrains Mono", Menlo, monospace;
+  /* code only — not a brand face */
+  --font-mono: ui-monospace, "SFMono-Regular", "Cascadia Code", Menlo, Consolas, monospace;
 }
 
 /* ── Reset ─────────────────────────────────────────────────── */
@@ -65,7 +69,7 @@ body {
   background: var(--bg);
   color: var(--fg);
   font-family: var(--font-sans);
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.6;
   font-feature-settings: "ss01", "cv11";
   -webkit-font-smoothing: antialiased;
@@ -125,4 +129,22 @@ textarea {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+/* Lenis smooth scroll — it toggles these classes on <html>. */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
 }
