@@ -1,2 +1,47 @@
-import { ArrowUpRight, Github, GitFork, GitPullRequest, Terminal } from "lucide-react";
-export default function GitHubPage(){return <div className="page-shell page-top"><div className="grid gap-10 lg:grid-cols-[1.05fr_.95fr] lg:items-center"><div><span className="eyebrow"><Github size={14}/>GitHub</span><h1 className="display-title mt-5">Building in the <span className="gradient-text">open.</span></h1><p className="muted-copy mt-6 max-w-xl text-lg">Explore the source code, experiments and products behind my work. Live activity and statistics are intentionally left to GitHub — no fabricated numbers here.</p><a href="https://github.com/pranavop45" target="_blank" rel="noreferrer" className="button-primary mt-8 focus-ring">Visit @pranavop45 <ArrowUpRight size={16}/></a></div><div className="premium-panel relative overflow-hidden p-7 sm:p-9"><div className="absolute right-0 top-0 h-48 w-48 rounded-full bg-purple-500/10 blur-3xl"/><div className="flex items-center gap-4"><div className="grid h-14 w-14 place-items-center rounded-2xl border border-purple-400/25 bg-purple-400/10"><Github size={28}/></div><div><p className="text-sm text-zinc-500">GitHub profile</p><h2 className="text-xl font-semibold">pranavop45</h2></div></div><div className="mt-8 grid gap-3 sm:grid-cols-3">{[{icon:Terminal,label:"Source code"},{icon:GitFork,label:"Experiments"},{icon:GitPullRequest,label:"Products"}].map(({icon:Icon,label})=><div key={label} className="rounded-xl border border-white/10 bg-white/[.03] p-4"><Icon size={18} className="text-purple-300"/><p className="mt-3 text-sm text-zinc-300">{label}</p></div>)}</div><div className="mt-8 rounded-xl border border-white/10 bg-black/20 p-4 font-mono text-xs text-zinc-400"><span className="text-purple-300">$</span> git explore pranavop45</div></div></div></div>}
+import type { Metadata } from "next";
+import { ArrowUpRight } from "lucide-react";
+import GithubProfile from "@/components/github/GithubProfile/GithubProfile";
+import RepoList from "@/components/github/RepoList/RepoList";
+import Button from "@/components/shared/Button/Button";
+import PageHeader from "@/components/shared/PageHeader/PageHeader";
+import { PROFILE } from "@/data/profile";
+import { getGithubUser, getRecentRepos } from "@/lib/github";
+
+export const metadata: Metadata = {
+  title: "GitHub",
+  description: "Recent public repositories and activity from Pranav Kadam on GitHub.",
+};
+
+export const revalidate = 3600;
+
+export default async function GithubPage() {
+  const [user, repos] = await Promise.all([getGithubUser(), getRecentRepos()]);
+  const profileUrl = `https://github.com/${PROFILE.handle}`;
+
+  return (
+    <>
+      <PageHeader
+        path="~/github"
+        title="Building in the open"
+        lede="Live from the GitHub API and refreshed hourly — the repositories I've pushed to most recently."
+      />
+      <section className="mx-auto w-full max-w-shell px-5 py-16 sm:px-8 sm:py-20">
+        {user && repos ? (
+          <div className="grid items-start gap-3 lg:grid-cols-[22rem_minmax(0,1fr)]">
+            <div className="lg:sticky lg:top-[calc(var(--nav-h)+2rem)]">
+              <GithubProfile user={user} />
+            </div>
+            <RepoList repos={repos} />
+          </div>
+        ) : (
+          <div className="flex flex-col items-start gap-4">
+            <p className="text-fg-muted">GitHub didn&apos;t respond just now. The profile is one click away.</p>
+            <Button href={profileUrl} icon={<ArrowUpRight size={15} />}>
+              @{PROFILE.handle} on GitHub
+            </Button>
+          </div>
+        )}
+      </section>
+    </>
+  );
+}

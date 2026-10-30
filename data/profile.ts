@@ -1,6 +1,6 @@
 export const PROFILE = {
   name: "Pranav Kadam",
-  handle: "pranavop45",
+  handle: "prnv-dev",
   role: "Software engineer — desktop, web & AI",
   location: "Nashik, India",
   timezone: "Asia/Kolkata",
@@ -26,7 +26,7 @@ export interface Social {
 }
 
 export const SOCIALS: Social[] = [
-  { key: "github", label: "GitHub", handle: "@pranavop45", href: "https://github.com/pranavop45" },
+  { key: "github", label: "GitHub", handle: "@prnv-dev", href: "https://github.com/prnv-dev" },
   {
     key: "linkedin",
     label: "LinkedIn",
