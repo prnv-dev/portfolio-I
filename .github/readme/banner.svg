@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360" role="img" aria-labelledby="title desc">
+  <title id="title">Pranav Kadam</title>
+  <desc id="desc">Software engineer — desktop, web and AI. Building a multi-product software company.</desc>
+  <style>
+    .rise { animation: rise 1s cubic-bezier(.22,1,.36,1) both; }
+    .d1 { animation-delay: .1s } .d2 { animation-delay: .25s } .d3 { animation-delay: .4s } .d4 { animation-delay: .55s }
+    @keyframes rise { from { opacity: 0; transform: translateY(14px) } }
+    .orb { transform-box: fill-box; transform-origin: center; animation: drift 16s ease-in-out infinite alternate; }
+    .o2 { animation-duration: 20s; animation-delay: -7s } .o3 { animation-duration: 24s; animation-delay: -12s } .o4 { animation-duration: 18s; animation-delay: -3s }
+    @keyframes drift { 0% { transform: translate(0,0) scale(1) } 50% { transform: translate(70px,-26px) scale(1.18) } 100% { transform: translate(-50px,24px) scale(.92) } }
+    .ping { transform-box: fill-box; transform-origin: center; animation: ping 2.4s cubic-bezier(.22,1,.36,1) infinite; }
+    @keyframes ping { 0% { transform: scale(1); opacity: .7 } 70%,100% { transform: scale(2.8); opacity: 0 } }
+    .scan { animation: scan 7s linear infinite; }
+    @keyframes scan { from { transform: translateX(-400px) } to { transform: translateX(1300px) } }
+    @media (prefers-reduced-motion: reduce){*{animation:none!important}}
+  </style>
+  <defs>
+    
+    <linearGradient id="spectrum" x1="0" y1="0" x2="1200" y2="0" gradientUnits="userSpaceOnUse" spreadMethod="reflect">
+      <stop offset="0" stop-color="#3b82f6"/>
+      <stop offset="0.35" stop-color="#22d3ee"/>
+      <stop offset="0.7" stop-color="#34d399"/>
+      <stop offset="1" stop-color="#f59e0b"/>
+      <animateTransform attributeName="gradientTransform" type="translate" values="0 0;2400 0" dur="10s" repeatCount="indefinite"/>
+    </linearGradient>
+    
+    <linearGradient id="spectrumSlow" x1="0" y1="0" x2="1200" y2="0" gradientUnits="userSpaceOnUse" spreadMethod="reflect">
+      <stop offset="0" stop-color="#3b82f6"/>
+      <stop offset="0.35" stop-color="#22d3ee"/>
+      <stop offset="0.7" stop-color="#34d399"/>
+      <stop offset="1" stop-color="#f59e0b"/>
+      <animateTransform attributeName="gradientTransform" type="translate" values="0 0;2400 0" dur="16s" repeatCount="indefinite"/>
+    </linearGradient>
+    <linearGradient id="border" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3b82f6" stop-opacity=".7"/><stop offset=".5" stop-color="#1c2430"/><stop offset="1" stop-color="#34d399" stop-opacity=".6"/>
+    </linearGradient>
+    <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="1.2" cy="1.2" r="1.2" fill="#273242"/></pattern>
+    <radialGradient id="dotFade" cx=".72" cy=".45" r=".62"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#000"/></radialGradient>
+    <mask id="dotMask"><rect width="1200" height="360" fill="url(#dotFade)"/></mask>
+    <filter id="blur" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="46"/></filter>
+    <clipPath id="frame"><rect width="1200" height="360" rx="18"/></clipPath>
+    <linearGradient id="beam" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".06"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+  </defs>
+
+  <g clip-path="url(#frame)">
+    <rect width="1200" height="360" fill="#05070a"/>
+    <g filter="url(#blur)" opacity=".55">
+      <circle class="orb" cx="250" cy="70" r="120" fill="#3b82f6"/>
+      <circle class="orb o2" cx="980" cy="110" r="130" fill="#22d3ee" opacity=".7"/>
+      <circle class="orb o3" cx="760" cy="330" r="110" fill="#34d399" opacity=".55"/>
+      <circle class="orb o4" cx="1150" cy="320" r="90" fill="#f59e0b" opacity=".45"/>
+    </g>
+    <rect width="1200" height="360" fill="url(#dots)" mask="url(#dotMask)"/>
+    <rect class="scan" x="0" y="0" width="300" height="360" fill="url(#beam)"/>
+  </g>
+  <rect x=".75" y=".75" width="1198.5" height="358.5" rx="17.5" fill="none" stroke="url(#border)" stroke-width="1.5"/>
+
+  <!-- left: identity -->
+  <g class="rise d1">
+    <rect x="72" y="74" width="292" height="30" rx="7" fill="#22d3ee" fill-opacity=".08" stroke="#22d3ee" stroke-opacity=".3"/>
+    <circle class="ping" cx="91" cy="89" r="4" fill="#22d3ee"/>
+    <circle cx="91" cy="89" r="4" fill="#22d3ee"/>
+    <text x="106" y="94" font-family="ui-monospace, SFMono-Regular, 'JetBrains Mono', Menlo, Consolas, monospace" font-size="14" fill="#9be7f5">final year · sandip university</text>
+  </g>
+  <text class="rise d2" x="68" y="182" font-family="'Segoe UI', Inter, -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif" font-size="78" font-weight="700" letter-spacing="-3" fill="url(#spectrum)">Pranav Kadam</text>
+  <text class="rise d3" x="72" y="226" font-family="'Segoe UI', Inter, -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif" font-size="24" font-weight="500" fill="#94a3b8">Software engineer, building a multi-product company.</text>
+  <g class="rise d4" font-family="ui-monospace, SFMono-Regular, 'JetBrains Mono', Menlo, Consolas, monospace" font-size="14">
+    <circle cx="76" cy="277" r="4" fill="#3b82f6"/><text x="88" y="282" fill="#5a6470">desktop</text>
+    <circle cx="178.2" cy="277" r="4" fill="#22d3ee"/><text x="190.2" y="282" fill="#5a6470">web</text>
+    <circle cx="246.0" cy="277" r="4" fill="#34d399"/><text x="258.0" y="282" fill="#5a6470">ai</text>
+    <circle cx="305.2" cy="277" r="4" fill="#f59e0b"/><text x="317.2" y="282" fill="#5a6470">nashik, india</text>
+  </g>
+
+  <!-- right: orbit -->
+  <g class="rise d3">
+    <g transform="rotate(-10 935 182)">
+      <path d="M750,182 a185,78 0 1,0 370,0 a185,78 0 1,0 -370,0" fill="none" stroke="url(#spectrumSlow)" stroke-opacity=".55" stroke-width="1.5" stroke-dasharray="4 7"/>
+      <ellipse cx="935" cy="182" rx="115" ry="48" fill="none" stroke="#1f2a37" stroke-width="1"/>
+      
+      <g>
+        <circle r="18.2" fill="#3b82f6" opacity="0.18"/>
+        <circle r="7" fill="#3b82f6"/>
+        <animateMotion dur="16s" begin="0.00s" repeatCount="indefinite" path="M750,182 a185,78 0 1,0 370,0 a185,78 0 1,0 -370,0"/>
+      </g>
+      <g>
+        <circle r="15.600000000000001" fill="#22d3ee" opacity="0.18"/>
+        <circle r="6" fill="#22d3ee"/>
+        <animateMotion dur="16s" begin="-2.67s" repeatCount="indefinite" path="M750,182 a185,78 0 1,0 370,0 a185,78 0 1,0 -370,0"/>
+      </g>
+      <g>
+        <circle r="18.2" fill="#34d399" opacity="0.18"/>
+        <circle r="7" fill="#34d399"/>
+        <animateMotion dur="16s" begin="-5.33s" repeatCount="indefinite" path="M750,182 a185,78 0 1,0 370,0 a185,78 0 1,0 -370,0"/>
+      </g>
+      <g>
+        <circle r="15.600000000000001" fill="#f59e0b" opacity="0.18"/>
+        <circle r="6" fill="#f59e0b"/>
+        <animateMotion dur="16s" begin="-8.00s" repeatCount="indefinite" path="M750,182 a185,78 0 1,0 370,0 a185,78 0 1,0 -370,0"/>
+      </g>
+      <g>
+        <circle r="13.0" fill="#fb7185" opacity="0.18"/>
+        <circle r="5" fill="#fb7185"/>
+        <animateMotion dur="16s" begin="-10.67s" repeatCount="indefinite" path="M750,182 a185,78 0 1,0 370,0 a185,78 0 1,0 -370,0"/>
+      </g>
+      <g>
+        <circle r="10.4" fill="#22d3ee" opacity="0.18"/>
+        <circle r="4" fill="#22d3ee"/>
+        <animateMotion dur="16s" begin="-13.33s" repeatCount="indefinite" path="M750,182 a185,78 0 1,0 370,0 a185,78 0 1,0 -370,0"/>
+      </g>
+    </g>
+    <rect x="895" y="142" width="80" height="80" rx="18" fill="#0e1218" stroke="url(#spectrum)" stroke-width="2"/>
+    <text x="935" y="193" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, 'JetBrains Mono', Menlo, Consolas, monospace" font-size="30" font-weight="700" fill="#e6e9ee">pk</text>
+  </g>
+</svg>

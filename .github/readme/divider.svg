@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="22" viewBox="0 0 1200 22" aria-hidden="true">
+  <defs>
+    
+    <linearGradient id="spectrum" x1="0" y1="0" x2="1200" y2="0" gradientUnits="userSpaceOnUse" spreadMethod="reflect">
+      <stop offset="0" stop-color="#3b82f6"/>
+      <stop offset="0.35" stop-color="#22d3ee"/>
+      <stop offset="0.7" stop-color="#34d399"/>
+      <stop offset="1" stop-color="#f59e0b"/>
+      <animateTransform attributeName="gradientTransform" type="translate" values="0 0;2400 0" dur="9s" repeatCount="indefinite"/>
+    </linearGradient>
+    <linearGradient id="fade" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".2" stop-color="#fff"/><stop offset=".8" stop-color="#fff"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+    <mask id="m"><rect width="1200" height="22" fill="url(#fade)"/></mask>
+    <filter id="soft" x="-10%" y="-200%" width="120%" height="500%"><feGaussianBlur stdDeviation="3"/></filter>
+  </defs>
+  <g mask="url(#m)">
+    <rect y="10" width="1200" height="2" rx="1" fill="url(#spectrum)" opacity=".85"/>
+    <rect y="8" width="1200" height="6" rx="3" fill="url(#spectrum)" opacity=".35" filter="url(#soft)"/>
+    <circle cy="11" r="3.5" fill="#fff">
+      <animate attributeName="cx" values="-20;1220" dur="5s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+</svg>

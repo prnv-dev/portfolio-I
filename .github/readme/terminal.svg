@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="420" viewBox="0 0 1200 420" role="img" aria-labelledby="title desc">
+  <title id="title">pk@nashik terminal</title>
+  <desc id="desc">whoami: Pranav Kadam, software engineer. Final-year B.Tech AI and ML at Sandip University, Nashik. Company products: Propel, CodeVault, DeepScan AI, WatchDog, Resume Screening System. Shipping since 2023.</desc>
+  <style>
+    .blink { animation: blink 1.05s steps(1) infinite; }
+    @keyframes blink { 50% { opacity: 0 } }
+    @media (prefers-reduced-motion: reduce){*{animation:none!important}}
+  </style>
+  <defs>
+    
+    <linearGradient id="spectrum" x1="0" y1="0" x2="1200" y2="0" gradientUnits="userSpaceOnUse" spreadMethod="reflect">
+      <stop offset="0" stop-color="#3b82f6"/>
+      <stop offset="0.35" stop-color="#22d3ee"/>
+      <stop offset="0.7" stop-color="#34d399"/>
+      <stop offset="1" stop-color="#f59e0b"/>
+      <animateTransform attributeName="gradientTransform" type="translate" values="0 0;2400 0" dur="12s" repeatCount="indefinite"/>
+    </linearGradient>
+    
+    <clipPath id="c0"><rect x="56" y="82" height="32" width="0">
+      <animate attributeName="width" from="0" to="141" begin="0.60s" dur="0.48s" fill="freeze"/>
+    </rect></clipPath>
+    <clipPath id="c1"><rect x="56" y="152" height="32" width="0">
+      <animate attributeName="width" from="0" to="253" begin="1.88s" dur="1.08s" fill="freeze"/>
+    </rect></clipPath>
+    <clipPath id="c2"><rect x="56" y="222" height="32" width="0">
+      <animate attributeName="width" from="0" to="202" begin="3.77s" dur="0.81s" fill="freeze"/>
+    </rect></clipPath>
+    <clipPath id="c3"><rect x="56" y="292" height="32" width="0">
+      <animate attributeName="width" from="0" to="284" begin="5.38s" dur="1.25s" fill="freeze"/>
+    </rect></clipPath>
+    <linearGradient id="glow" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3b82f6" stop-opacity=".10"/><stop offset="1" stop-color="#3b82f6" stop-opacity="0"/></linearGradient>
+  </defs>
+  <rect x="1" y="1" width="1198" height="418" rx="16" fill="#0a0d12" stroke="#1c2430"/>
+  <rect x="1" y="1" width="1198" height="140" rx="16" fill="url(#glow)"/>
+  <path d="M1 46 V17 a16 16 0 0 1 16 -16 H1183 a16 16 0 0 1 16 16 V46 Z" fill="#0e1218"/>
+  <rect x="0" y="45" width="1200" height="2" fill="url(#spectrum)" opacity=".8"/>
+  <circle cx="30" cy="24" r="6.5" fill="#fb7185"/><circle cx="52" cy="24" r="6.5" fill="#f59e0b"/><circle cx="74" cy="24" r="6.5" fill="#34d399"/>
+  <text x="600.0" y="29" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, 'JetBrains Mono', Menlo, Consolas, monospace" font-size="14" fill="#5a6470">pk@nashik: ~ — zsh</text>
+  
+  <text clip-path="url(#c0)" x="60" y="104" font-family="ui-monospace, SFMono-Regular, 'JetBrains Mono', Menlo, Consolas, monospace" font-size="17"><tspan fill="#22d3ee">$</tspan><tspan fill="#e6e9ee" dx="12">whoami</tspan></text>
+  <text x="60" y="134" font-family="ui-monospace, SFMono-Regular, 'JetBrains Mono', Menlo, Consolas, monospace" font-size="17" xml:space="preserve" opacity="0"><tspan fill="#e6e9ee">pranav kadam</tspan><tspan fill="#94a3b8"> — software engineer · desktop · web · ai</tspan><animate attributeName="opacity" from="0" to="1" begin="1.28s" dur=".4s" fill="freeze"/></text>
+  <text clip-path="url(#c1)" x="60" y="174" font-family="ui-monospace, SFMono-Regular, 'JetBrains Mono', Menlo, Consolas, monospace" font-size="17"><tspan fill="#22d3ee">$</tspan><tspan fill="#e6e9ee" dx="12">cat education.txt</tspan></text>
+  <text x="60" y="204" font-family="ui-monospace, SFMono-Regular, 'JetBrains Mono', Menlo, Consolas, monospace" font-size="17" xml:space="preserve" opacity="0"><tspan fill="#e6e9ee">final year · b.tech ai &amp; ml · sandip university, nashik</tspan><animate attributeName="opacity" from="0" to="1" begin="3.17s" dur=".4s" fill="freeze"/></text>
+  <text clip-path="url(#c2)" x="60" y="244" font-family="ui-monospace, SFMono-Regular, 'JetBrains Mono', Menlo, Consolas, monospace" font-size="17"><tspan fill="#22d3ee">$</tspan><tspan fill="#e6e9ee" dx="12">ls ~/company</tspan></text>
+  <text x="60" y="274" font-family="ui-monospace, SFMono-Regular, 'JetBrains Mono', Menlo, Consolas, monospace" font-size="17" xml:space="preserve" opacity="0"><tspan fill="#3b82f6">propel/</tspan><tspan fill="#e6e9ee">   </tspan><tspan fill="#22d3ee">codevault/</tspan><tspan fill="#e6e9ee">   </tspan><tspan fill="#34d399">deepscan-ai/</tspan><tspan fill="#e6e9ee">   </tspan><tspan fill="#f59e0b">watchdog/</tspan><tspan fill="#e6e9ee">   </tspan><tspan fill="#fb7185">resume-screening/</tspan><animate attributeName="opacity" from="0" to="1" begin="4.78s" dur=".4s" fill="freeze"/></text>
+  <text clip-path="url(#c3)" x="60" y="314" font-family="ui-monospace, SFMono-Regular, 'JetBrains Mono', Menlo, Consolas, monospace" font-size="17"><tspan fill="#22d3ee">$</tspan><tspan fill="#e6e9ee" dx="12">echo $SHIPPING_SINCE</tspan></text>
+  <text x="60" y="344" font-family="ui-monospace, SFMono-Regular, 'JetBrains Mono', Menlo, Consolas, monospace" font-size="17" xml:space="preserve" opacity="0"><tspan fill="#f59e0b">2023</tspan><tspan fill="#94a3b8"> — and still shipping</tspan><animate attributeName="opacity" from="0" to="1" begin="6.83s" dur=".4s" fill="freeze"/></text>
+  <g opacity="0">
+    <text x="60" y="384" font-family="ui-monospace, SFMono-Regular, 'JetBrains Mono', Menlo, Consolas, monospace" font-size="17" fill="#22d3ee">$</text>
+    <rect class="blink" x="84" y="367" width="10" height="21" rx="1.5" fill="#22d3ee"/>
+    <animate attributeName="opacity" from="0" to="1" begin="7.42s" dur=".2s" fill="freeze"/>
+  </g>
+</svg>

@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="132" viewBox="0 0 1200 132" role="img" aria-labelledby="title">
+  <title id="title">Stack: Next.js 14, React 18, TypeScript, Tailwind CSS, CSS Modules, Framer Motion, WebGL, Groq, Geist, Vercel</title>
+  <style>
+    .chip { animation: pop .7s cubic-bezier(.22,1,.36,1) both, bob 6s ease-in-out infinite; }
+    @keyframes pop { from { opacity: 0 } }
+    @keyframes bob { 0%,100% { transform: translateY(0) } 50% { transform: translateY(-3px) } }
+    .halo { transform-box: fill-box; transform-origin: center; animation: halo 3s ease-out infinite; }
+    @keyframes halo { 0% { transform: scale(1); opacity: .6 } 80%,100% { transform: scale(2.6); opacity: 0 } }
+    @media (prefers-reduced-motion: reduce){*{animation:none!important}}
+  </style>
+  
+  <g class="chip" style="animation-delay:0.00s, 0.00s">
+    <rect x="182.2" y="12" width="154.0" height="44" rx="10" fill="#0a0d12" stroke="#1c2430"/>
+    <circle cx="204.2" cy="34" r="5" fill="#e6e9ee"/>
+    <circle class="halo" cx="204.2" cy="34" r="5" fill="#e6e9ee" style="animation-delay:0.00s"/>
+    <text x="220.2" y="40" font-family="ui-monospace, SFMono-Regular, 'JetBrains Mono', Menlo, Consolas, monospace" font-size="16" fill="#e6e9ee">Next.js 14</text>
+  </g>
+  <g class="chip" style="animation-delay:0.08s, -0.70s">
+    <rect x="350.2" y="12" width="134.8" height="44" rx="10" fill="#0a0d12" stroke="#1c2430"/>
+    <circle cx="372.2" cy="34" r="5" fill="#22d3ee"/>
+    <circle class="halo" cx="372.2" cy="34" r="5" fill="#22d3ee" style="animation-delay:0.30s"/>
+    <text x="388.2" y="40" font-family="ui-monospace, SFMono-Regular, 'JetBrains Mono', Menlo, Consolas, monospace" font-size="16" fill="#e6e9ee">React 18</text>
+  </g>
+  <g class="chip" style="animation-delay:0.16s, -1.40s">
+    <rect x="499.0" y="12" width="154.0" height="44" rx="10" fill="#0a0d12" stroke="#1c2430"/>
+    <circle cx="521.0" cy="34" r="5" fill="#3b82f6"/>
+    <circle class="halo" cx="521.0" cy="34" r="5" fill="#3b82f6" style="animation-delay:0.60s"/>
+    <text x="537.0" y="40" font-family="ui-monospace, SFMono-Regular, 'JetBrains Mono', Menlo, Consolas, monospace" font-size="16" fill="#e6e9ee">TypeScript</text>
+  </g>
+  <g class="chip" style="animation-delay:0.24s, -2.10s">
+    <rect x="667.0" y="12" width="173.2" height="44" rx="10" fill="#0a0d12" stroke="#1c2430"/>
+    <circle cx="689.0" cy="34" r="5" fill="#22d3ee"/>
+    <circle class="halo" cx="689.0" cy="34" r="5" fill="#22d3ee" style="animation-delay:0.90s"/>
+    <text x="705.0" y="40" font-family="ui-monospace, SFMono-Regular, 'JetBrains Mono', Menlo, Consolas, monospace" font-size="16" fill="#e6e9ee">Tailwind CSS</text>
+  </g>
+  <g class="chip" style="animation-delay:0.32s, -2.80s">
+    <rect x="854.2" y="12" width="163.6" height="44" rx="10" fill="#0a0d12" stroke="#1c2430"/>
+    <circle cx="876.2" cy="34" r="5" fill="#34d399"/>
+    <circle class="halo" cx="876.2" cy="34" r="5" fill="#34d399" style="animation-delay:1.20s"/>
+    <text x="892.2" y="40" font-family="ui-monospace, SFMono-Regular, 'JetBrains Mono', Menlo, Consolas, monospace" font-size="16" fill="#e6e9ee">CSS Modules</text>
+  </g>
+  <g class="chip" style="animation-delay:0.40s, -3.50s">
+    <rect x="268.6" y="72" width="182.8" height="44" rx="10" fill="#0a0d12" stroke="#1c2430"/>
+    <circle cx="290.6" cy="94" r="5" fill="#fb7185"/>
+    <circle class="halo" cx="290.6" cy="94" r="5" fill="#fb7185" style="animation-delay:1.50s"/>
+    <text x="306.6" y="100" font-family="ui-monospace, SFMono-Regular, 'JetBrains Mono', Menlo, Consolas, monospace" font-size="16" fill="#e6e9ee">Framer Motion</text>
+  </g>
+  <g class="chip" style="animation-delay:0.48s, -4.20s">
+    <rect x="465.4" y="72" width="106.0" height="44" rx="10" fill="#0a0d12" stroke="#1c2430"/>
+    <circle cx="487.4" cy="94" r="5" fill="#f59e0b"/>
+    <circle class="halo" cx="487.4" cy="94" r="5" fill="#f59e0b" style="animation-delay:1.80s"/>
+    <text x="503.4" y="100" font-family="ui-monospace, SFMono-Regular, 'JetBrains Mono', Menlo, Consolas, monospace" font-size="16" fill="#e6e9ee">WebGL</text>
+  </g>
+  <g class="chip" style="animation-delay:0.56s, -4.90s">
+    <rect x="585.4" y="72" width="96.4" height="44" rx="10" fill="#0a0d12" stroke="#1c2430"/>
+    <circle cx="607.4" cy="94" r="5" fill="#f59e0b"/>
+    <circle class="halo" cx="607.4" cy="94" r="5" fill="#f59e0b" style="animation-delay:2.10s"/>
+    <text x="623.4" y="100" font-family="ui-monospace, SFMono-Regular, 'JetBrains Mono', Menlo, Consolas, monospace" font-size="16" fill="#e6e9ee">Groq</text>
+  </g>
+  <g class="chip" style="animation-delay:0.64s, -5.60s">
+    <rect x="695.8" y="72" width="106.0" height="44" rx="10" fill="#0a0d12" stroke="#1c2430"/>
+    <circle cx="717.8" cy="94" r="5" fill="#94a3b8"/>
+    <circle class="halo" cx="717.8" cy="94" r="5" fill="#94a3b8" style="animation-delay:2.40s"/>
+    <text x="733.8" y="100" font-family="ui-monospace, SFMono-Regular, 'JetBrains Mono', Menlo, Consolas, monospace" font-size="16" fill="#e6e9ee">Geist</text>
+  </g>
+  <g class="chip" style="animation-delay:0.72s, -6.30s">
+    <rect x="815.8" y="72" width="115.6" height="44" rx="10" fill="#0a0d12" stroke="#1c2430"/>
+    <circle cx="837.8" cy="94" r="5" fill="#e6e9ee"/>
+    <circle class="halo" cx="837.8" cy="94" r="5" fill="#e6e9ee" style="animation-delay:2.70s"/>
+    <text x="853.8" y="100" font-family="ui-monospace, SFMono-Regular, 'JetBrains Mono', Menlo, Consolas, monospace" font-size="16" fill="#e6e9ee">Vercel</text>
+  </g>
+</svg>
