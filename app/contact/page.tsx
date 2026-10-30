@@ -1,3 +1,23 @@
-import { ArrowUpRight, Github, Instagram, Linkedin, Mail, Send } from "lucide-react";
-const links=[{name:"Email",detail:"iampranavkadam@gmail.com",href:"mailto:iampranavkadam@gmail.com",icon:Mail},{name:"LinkedIn",detail:"Pranav Kadam",href:"https://www.linkedin.com/in/pranav-kadam-2ab2893a7",icon:Linkedin},{name:"GitHub",detail:"@pranavop45",href:"https://github.com/pranavop45",icon:Github},{name:"Telegram",detail:"@DEVID_xx",href:"https://t.me/DEVID_xx",icon:Send},{name:"Instagram",detail:"@mr.pranav_0x",href:"https://www.instagram.com/mr.pranav_0x",icon:Instagram}];
-export default function ContactPage(){return <div className="page-shell page-top"><div className="mx-auto max-w-3xl text-center"><span className="eyebrow"><span className="eyebrow-dot"/>Contact</span><h1 className="display-title mt-5">Let&apos;s build something <span className="gradient-text">meaningful.</span></h1><p className="muted-copy mx-auto mt-6 max-w-2xl text-lg">Have a project, an idea or just want to connect? Choose the channel that works best for you.</p></div><div className="mx-auto mt-12 grid max-w-4xl gap-4 sm:grid-cols-2">{links.map(({name,detail,href,icon:Icon},i)=><a key={name} href={href} target={href.startsWith("http")?"_blank":undefined} rel="noreferrer" className={`premium-panel group flex min-h-28 items-center gap-4 p-5 transition duration-300 hover:-translate-y-1 hover:border-purple-400/30 ${i===0?"sm:col-span-2":""}`}><div className="grid h-12 w-12 shrink-0 place-items-center rounded-xl border border-purple-400/20 bg-purple-400/10 text-purple-200"><Icon size={21}/></div><div className="min-w-0"><p className="text-sm text-zinc-500">{name}</p><p className="truncate font-medium text-zinc-200">{detail}</p></div><ArrowUpRight size={18} className="ml-auto text-zinc-600 transition group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-purple-300"/></a>)}</div></div>}
+import type { Metadata } from "next";
+import ContactPanel from "@/components/contact/ContactPanel/ContactPanel";
+import PageHeader from "@/components/shared/PageHeader/PageHeader";
+
+export const metadata: Metadata = {
+  title: "Contact",
+  description: "Get in touch with Pranav Kadam by email, LinkedIn, GitHub, Telegram, Instagram or Discord.",
+};
+
+export default function ContactPage() {
+  return (
+    <>
+      <PageHeader
+        path="~/contact"
+        title="Get in touch"
+        lede="Projects, roles, questions about the products — email reaches me fastest. Everything else is listed alongside."
+      />
+      <section className="mx-auto w-full max-w-shell px-5 py-16 sm:px-8 sm:py-20">
+        <ContactPanel />
+      </section>
+    </>
+  );
+}
