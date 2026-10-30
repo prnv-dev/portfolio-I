@@ -5,7 +5,7 @@ import { GeistSans } from "geist/font/sans";
 import Footer from "@/components/layout/Footer/Footer";
 import Navbar from "@/components/layout/Navbar/Navbar";
 import SiteBackground from "@/components/layout/SiteBackground/SiteBackground";
-import NovaWidget from "@/components/NovaWidget";
+import NovaWidget from "@/components/nova/NovaWidget/NovaWidget";
 import "./globals.css";
 import "./legacy.css";
 
