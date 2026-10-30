@@ -1,4 +1,23 @@
-"use client";
-import { Download, ExternalLink } from "lucide-react";
-import Image from "next/image";
-export default function ResumePage(){const download=()=>{const a=document.createElement("a");a.href="/PK.RESUME.jpg";a.download="Pranav-Kadam-Resume.jpg";document.body.appendChild(a);a.click();a.remove()};return <div className="page-shell page-top"><header className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between"><div><span className="eyebrow"><span className="eyebrow-dot"/>Resume</span><h1 className="section-title mt-5">Experience, at a <span className="gradient-text">glance.</span></h1><p className="muted-copy mt-4 max-w-xl">A readable preview of my current resume, with the original download functionality preserved.</p></div><div className="flex flex-wrap gap-3"><button onClick={download} className="button-primary focus-ring"><Download size={16}/>Download resume</button><a href="/PK.RESUME.jpg" target="_blank" className="button-secondary focus-ring">Open full size <ExternalLink size={16}/></a></div></header><div className="premium-panel mx-auto mt-10 max-w-5xl overflow-hidden p-2 sm:p-4"><div className="overflow-hidden rounded-xl bg-white"><Image src="/PK.RESUME.jpg" alt="Pranav Kadam resume" width={1600} height={2000} priority className="h-auto w-full object-contain"/></div></div></div>}
+import type { Metadata } from "next";
+import ResumeViewer from "@/components/resume/ResumeViewer/ResumeViewer";
+import PageHeader from "@/components/shared/PageHeader/PageHeader";
+
+export const metadata: Metadata = {
+  title: "Resume",
+  description: "Resume of Pranav Kadam — software engineer working across desktop, web and AI applications.",
+};
+
+export default function ResumePage() {
+  return (
+    <>
+      <PageHeader
+        path="~/resume"
+        title="Resume"
+        lede="Software engineer — desktop, web and AI applications. Preview it here or download the original."
+      />
+      <section className="mx-auto w-full max-w-shell px-5 py-16 sm:px-8 sm:py-20">
+        <ResumeViewer />
+      </section>
+    </>
+  );
+}

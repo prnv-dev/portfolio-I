@@ -1,0 +1,113 @@
+.viewer {
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.5rem 0.6rem 0.5rem 1rem;
+  border-bottom: 1px solid var(--line);
+  background: var(--surface-2);
+}
+
+.file {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--fg-muted);
+}
+
+.tool {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: var(--radius-sm);
+  color: var(--fg-faint);
+  transition:
+    color 0.2s var(--ease-out),
+    background-color 0.2s var(--ease-out);
+}
+
+.tool:hover {
+  color: var(--cyan);
+  background: rgba(34, 211, 238, 0.08);
+}
+
+/* Paper on a dark desk: subtle dotted stage behind the page. */
+.stage {
+  padding: clamp(0.75rem, 4vw, 2.5rem);
+  background-color: var(--bg);
+  background-image: radial-gradient(rgba(148, 163, 184, 0.12) 1px, transparent 1px);
+  background-size: 18px 18px;
+}
+
+.page {
+  width: 100%;
+  max-width: 760px;
+  height: auto;
+  margin-inline: auto;
+  border-radius: 4px;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.06),
+    0 30px 60px -30px rgba(0, 0, 0, 0.9);
+}
+
+.glance {
+  padding: 1.4rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: linear-gradient(180deg, rgba(14, 18, 24, 0.92), rgba(10, 13, 18, 0.92));
+}
+
+@media (min-width: 1024px) {
+  .glance {
+    position: sticky;
+    top: calc(var(--nav-h) + 2rem);
+  }
+}
+
+.label {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--fg-faint);
+}
+
+.facts {
+  display: grid;
+  gap: 0.9rem;
+  margin-top: 1rem;
+}
+
+.facts dt {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--cyan);
+}
+
+.facts dd {
+  margin: 0.2rem 0 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--fg);
+}
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 1rem;
+}
+
+.skills li {
+  padding: 0.3rem 0.55rem;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-sm);
+  font-size: 12.5px;
+  color: var(--fg-muted);
+}
